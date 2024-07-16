@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .info-container {
+        display: none;
+      }
+      .food-img {
+        display: none;
+      }
+      .active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>라면만들기</h1>
+    <hr />
+    <img class="food-img" src="" />
+    <button id="recipe-btn">레시피 클릭</button>
+    <div class="info-container"></div>
+
+    <script>
+      const info = document.querySelector('.info-container');
+      const recipeBtn = document.querySelector('#recipe-btn');
+      const img = document.querySelector('.food-img');
+      const ramen = {
+        name: '라면',
+        ingredients: [
+          '라면 1봉지',
+          '계란 1알',
+          '다진마늘 1T',
+          '참기름 0.5T',
+          '물 500ml',
+          '대파 1/2쪽',
+          '깨소금 1T',
+        ],
+        contents: [
+          '위 재료 확인하고 준비해주세요. 가장 먼저 냄비에 물 500ml 넣어 주세요.',
+          '계란 1알은 깨서 휘휘~저어주세요.',
+          '파 1/2쪽은 쫑쫑 썰어주세요.',
+          '통깨가 있으신 분들은 1T를 1회용 비닐봉지에 넣어서 으깨주세요.',
+          '물이 끓으면 썰어놓은 대파 절반과 스프를 모두 넣어주세요.',
+          '라면은 강불에서 3분만 익혀주세요.',
+          '그리고나서, 면발만 따로 그릇에 덜어 내주세요.',
+          '라면 국물에 준비해놓은 계란물을 시계방향으로 한바퀴 휘 둘러 주시고, 건들지 마세요. 계란이 몽글몽글 해질거에요.',
+          '깨소금 1T 넣습니다.',
+          '참기름 0.5T 넣어주시면 됩니다. 그리고, 한번 끓어 오르면 불을 끄고 덜어 놓은 면 그릇에 모두 담아 주세요.',
+          '남은 대파 절반을 라면 위에 올려주시면 끝!',
+        ]
+      };
+
+      recipeBtn.addEventListener('click', () => {
+        const url =
+          'https://health.chosun.com/site/data/img_dir/2020/09/07/2020090702900_0.jpg';
+        img.src = url;
+        info.classList.toggle('active');
+        img.classList.toggle('active');
+        showRecipe(ramen);
+      });
+
+      // 객체를 입력받아 레시피를 출력하는 함수
+      function showRecipe(obj) {
+        info.innerHTML = `<h2>${obj.name}</h2>`;
+        info.innerHTML += '<h3>재료:</h3><ul>';
+
+        for (let i = 0; i < obj.ingredients.length; i++) {
+          info.innerHTML += `<li>${obj.ingredients[i]}</li>`;
+        }
+        info.innerHTML += '</ul><h3>조리 순서:</h3><ol>';
+
+        for (let i = 0; i < obj.contents.length; i++) {
+          info.innerHTML += `<li>${obj.contents[i]}</li>`;
+        }
+        info.innerHTML += '</ol>';
+      }
+    </script>
+  </body>
+</html>

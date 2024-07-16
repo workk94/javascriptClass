@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .wrap {
+        width: 400px;
+        padding: 10px;
+        border: 1px solid black;
+        margin: 0 auto; /* 상하여백 좌우여백 */
+      }
+      .wrap-img {
+        width: 200px;
+        height: 200px;
+        border: 1px solid black;
+        margin: 0 auto;
+        margin-bottom: 10px;
+
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0Hd3uNFheG6_e1OOqBax3A_iWpNCR0tOf2A&s");
+        background-position: center;
+        background-size: cover;
+      }
+      .wrap-info {
+        width: 300px;
+        border: 1px solid black;
+        margin: 0 auto;
+        padding: 10px;
+      }
+      .wrap-info input {
+        width: 98%;
+        height: 30px;
+        margin-bottom: 5px;
+      }
+      .wrap-info button {
+        width: 100%;
+        height: 40px;
+        border: none;
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="wrap-img"></div>
+      <div class="wrap-info">
+        <input type="text" placeholder="ID" />
+        <input type="text" placeholder="PASSWORD" />
+        <button>로그인</button>
+      </div>
+    </div>
+  </body>
+</html>

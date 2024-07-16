@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>총점, 평균 구하기</h1>
+    <hr />
+
+    <script>
+      /* 국어, 영어 , 수학 점수를 입력 받아  prompt 사용
+              총점과 평균을 구하고 출력하시오     alert  or document.write 사용
+  
+  
+             추가요구사항: 유효성검사 (0~100사이 입력되도록 하시오)  올바른 값이 입력되도록 하시오 .  프로그래밍 경험이 있는 분들
+  
+  
+             처리과정:
+             */
+
+      let scoreKor = parseInt(prompt('국어 : ', ''));
+      let scoreEng = parseInt(prompt('영어 : ', ''));
+      let scoreMath = parseInt(prompt('수학 : ', ''));
+
+      if (
+        isValid(scoreKor) === true &&
+        isValid(scoreEng) === true &&
+        isValid(scoreMath) === true
+      ) {
+        let scoreSum = scoreKor + scoreEng + scoreMath;
+        let scoreAvg = (scoreSum / 3).toFixed(2); // 소수점 2번째자리
+
+        document.write(`총점은 ${scoreSum}점, 평균은 ${scoreAvg}점 입니다.`);
+      } else {
+        document.write('다시 입력해주세요.');
+      }
+
+      function isValid(s) {
+        if (s === null || s === undefined) {
+          return false;
+        } else if (s === NaN) {
+          return false;
+        } else if (!(s >= 0 && s <= 100)) {
+          return false;
+        } else {
+          return true;
+        }
+      }
+    </script>
+  </body>
+</html>
