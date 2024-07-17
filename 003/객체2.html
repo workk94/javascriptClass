@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let snack = {
+        name: '맛동산',
+        price: 3000,
+        weight: 300,
+      };
+
+      console.log(snack);
+      console.log(snack.name);
+
+      console.log(snack['price']);
+      console.log(snack['weight']);
+
+      // 객체의 구성요소 : 속성(변수, 데이터) + 함수(기능)
+
+      let snack2 = {
+        name: '오징어땅콩',
+        price: 2400,
+        weight: 300,
+
+        showInfo: function () {
+          // 메서드에서 객체의 속성을 사용할때 this 사용함
+          alert(this.name);
+          alert(this.price);
+          alert(this.weight);
+        },
+        toString: function () {
+          return this.name + ':' + this.price + ':' + this.weight;
+        },
+      };
+
+      snack2.showInfo();
+      let rtn = snack2.toString();
+      console.log(rtn);
+    </script>
+  </body>
+</html>

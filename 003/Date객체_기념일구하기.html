@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>기념일 구하기</h2>
+    <div class="date200"></div>
+
+    <script>
+      let 하루밀리세컨드시간 = 24 * 60 * 60 * 1000;
+
+      console.log(하루밀리세컨드시간);
+
+      let firstDay = new Date('2024-07-01');
+      let toFirst = firstDay.getTime();
+
+      //7월 1일 기준 200일 후는?
+      let future = toFirst + 200 * 1000 * 60 * 60 * 24;
+      let someday = new Date(future);
+
+      let year = someday.getFullYear();
+      let month = someday.getMonth() + 1;
+      let date = someday.getDate();
+
+      document.querySelector('.date200').innerHTML =
+        year + '년' + month + '월' + date + '일';
+    </script>
+  </body>
+</html>
