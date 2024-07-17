@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id=“wrapper”>
+        <h2>여행 준비물 점검 목록</h2>
+        <form>
+        <input type="text" id="item" autofocus="true" >
+        <button type="button"  id="add"  class="addBtn"   >추가 </button>
+        </form>
+    </div>
+        
+        <div  id="itemList"></div>
+        </div>
+
+
+        <script>
+        let itemList=[];
+        document.querySelector("#add").addEventListener("click" , addList);
+
+        function addList(){
+            let item = document.querySelector("#item");
+            if( item !=null ){
+                itemList.push( item.value );
+                item.value="";
+                item.focus();
+            }
+
+            showList();
+        }
+
+        
+        function showList(){
+            let list  ="<ul>";
+            for( let i=0; i<itemList.length ; i++){
+                list += "<li>" +itemList[i]  + "<span class='close'  id=" + i + "> X </span> </li>";
+            }
+            list += "</ul>";
+
+            document.querySelector("#itemList").innerHTML = list;
+
+            let  remove = document.querySelectorAll(".close");
+
+            for( let i=0; i< remove.length;  i++) {
+                remove[i].addEventListener("click" , removeList);
+            }            
+        }
+
+
+
+        function  removeList(){
+                let id = this.id;
+                itemList.splice( id, 1);   //배열에서 선택한 인덱스의 요소가 제거됨
+                showList();
+        }
+        </script>
+
+
+    
+</body>
+</html>

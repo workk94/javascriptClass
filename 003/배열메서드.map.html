@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let acornStudents = [
+        '김솔',
+        '김도현',
+        '김무궁',
+        '김세중',
+        '김세현',
+        '김정석',
+        '김채운',
+        '백바울',
+        '소병학',
+        '송병화',
+        '송수빈',
+        '용지민',
+        '이상민',
+        '이효진',
+        '장경호',
+        '전우선',
+        '전지형',
+        '정보란',
+        '주상길',
+        '주형준',
+        '최문길',
+        '최형진',
+        '하예진',
+        '황지영',
+      ];
+      // 배열의 요소의 내용을 변경하여 새로운 배열을 반환한다
+      //  "김솔" => "김솔님" of "김솔" => "<div>김솔</div>"
+
+      acornStudents.forEach(function (item, index) {
+        console.log(item, index);
+      });
+
+      let newacornStudents = acornStudents.map(function (item, index) {
+        return item + '님';
+      });
+
+      // 화살표함수
+      let newacornStudents3 = acornStudents.map((item, index) => item + '씨'); // 수행할 코드가 한 줄일 때 중괄호 블럭과 return을 생략할 수 있다.
+      //   let newacornStudents3 = acornStudents.map((item, index) => {item + '씨'});
+
+      console.log(newacornStudents);
+      console.log(newacornStudents3);
+
+      let newacornStudents2 = new Array(24); //   let newacornStudents2 = [];
+
+      for (let i = 0; i < newacornStudents.length; i++) {
+        let name = newacornStudents[i];
+        newacornStudents2[i] = '<div>' + name + '</div>';
+      }
+      console.log('에이콘 학생 명단');
+      console.log(newacornStudents2);
+    </script>
+  </body>
+</html>
