@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function change() {
+        // alert('dfdf');
+        let wrap = document.getElementsByClassName('result')[0];
+        console.log(wrap);
+        wrap.innerHTML = '내용을 변경';
+        wrap.style.width = '100px';
+        wrap.style.height = '100px';
+        wrap.style.backgroundColor = 'green';
+      }
+      function unchange() {
+        let wrap = document.getElementsByClassName('result')[0];
+        wrap.innerHTML = '';
+      }
+    </script>
+  </head>
+  <body>
+    <h3>getElementsByClassName로 찾기, 배열로 반환됨(주의!!)</h3>
+    <div id="wrap" class="result"></div>
+    <button onclick="change()">클릭</button>
+    <button onclick="unchange()">클릭</button>
+  </body>
+</html>

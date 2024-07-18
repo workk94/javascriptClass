@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function change1() {
+        // alert('dfs');
+        let wrap1 = document.querySelector('#wrap1');
+        wrap1.innerHTML = '내용1';
+        wrap1.style.width = '100px';
+        wrap1.style.backgroundColor = 'green';
+      }
+      function change2() {
+        // alert('sfdds');
+        let wrap1 = document.querySelector('.wrap2');
+        wrap1.innerHTML = '내용2';
+        wrap1.style.width = '100px';
+        wrap1.style.backgroundColor = 'red';
+      }
+    </script>
+  </head>
+  <body>
+    <h3>
+      querySelector : 하나의 요소만 선택됨, 여러개가 있어도 처음있는 요소 한개가
+      선택됨
+    </h3>
+    <div id="wrap1" class="result"></div>
+    <div class="wrap2"></div>
+    <button onclick="change1()">클릭</button>
+    <button onclick="change2()">클릭</button>
+  </body>
+</html>

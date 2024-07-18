@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function loginCheck() {
+        // alert('sfsdfs');
+        let frm = document.frm;
+        // let frm = document.forms[0];
+        let useridE = frm.userid;
+        // let useridE = frm.elements[0];
+        let userid = useridE.value;
+
+        let userpwE = frm.userpw;
+        let userpw = userpwE.value;
+
+        // alert(userid);
+        if (userid == '') {
+          alert('아이디 입력');
+          useridE.focus();
+        } else if (userpw == '') {
+          alert('비번입력');
+          userpwE.focus();
+        } else {
+          alert('로그인중이다');
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form name="frm" action="/login" method="post">
+      <input type="text" name="userid" />
+      <input type="text" name="userpw" />
+    </form>
+
+    <!-- 폼태그 안에 있는 button은 기본타입이 submit으로 설정됨 -->
+
+    <button type="button" onclick="loginCheck()">로그인</button>
+  </body>
+</html>

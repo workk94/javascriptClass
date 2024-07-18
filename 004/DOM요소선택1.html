@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function change() {
+        // alert('dfdf');
+        let wrap = document.getElementById('wrap');
+        wrap.innerHTML = '내용을 변경';
+        wrap.style.width = '100px';
+        wrap.style.height = '100px';
+        wrap.style.backgroundColor = 'green';
+      }
+      function unchange() {
+        // alert('df2142df');
+        wrap.innerHTML = '';
+        wrap.style.width = '';
+        wrap.style.height = '';
+        wrap.style.backgroundColor = '';
+      }
+    </script>
+  </head>
+  <body>
+    <h3></h3>
+    <div id="wrap">getElementById로 찾기</div>
+    <button onclick="change()">클릭</button>
+    <button onclick="unchange()">클릭</button>
+  </body>
+</html>
