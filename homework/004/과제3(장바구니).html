@@ -4,6 +4,78 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .wrap {
+        border: 1px solid;
+        width: 1000px;
+        height: 800px;
+
+        margin: 0 auto;
+      }
+      .cart {
+        width: 900px;
+        margin: 0 auto;
+      }
+      .cart ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .item {
+        border: 1px solid;
+        width: 200px;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <div class="wrap">
+      <div class="cart">
+        <ul>
+          <li>
+            <div class="item">
+              <img src="./media/apple.png" />
+              <p>아메리카노</p>
+            </div>
+          </li>
+          <li>
+            <div class="item">
+              <img src="./media/apple.png" />
+              <p>아메리카노</p>
+            </div>
+          </li>
+          <li>
+            <div class="item">
+              <img src="./media/apple.png" />
+              <p>아메리카노</p>
+            </div>
+          </li>
+          <li>
+            <div class="item">
+              <img src="./media/apple.png" />
+              <p>아메리카노</p>
+            </div>
+          </li>
+          <li>
+            <div class="item">
+              <img src="./media/apple.png" />
+              <p>아메리카노</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="btn">
+        <button>추가하기</button>
+        <button>제거하기</button>
+      </div>
+    </div>
+  </body>
 </html>

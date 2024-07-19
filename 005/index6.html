@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .wrap {
+        width: 1200px;
+        border: 1px solid black;
+        margin: 0 auto;
+      }
+
+      header {
+        border: 1px solid black;
+        height: 100px;
+
+        /*  */
+        position: relative;
+      }
+
+      nav {
+        height: 60px;
+        border: 1px solid black;
+      }
+
+      section {
+        /*height: 400px;
+            background-color: aqua;*/
+      }
+
+      footer {
+        height: 100px;
+        border: 1px solid black;
+
+        /*   */
+        display: flex;
+
+        padding: 10px;
+      }
+
+      footer > div {
+        width: 33%;
+        /*  border: 1px solid black;  */
+        height: 100px;
+        line-height: 100px;
+      }
+
+      header .img {
+        width: 200px;
+        height: 60px;
+
+        background-image: url(images/logo.png);
+        background-position: center;
+        background-size: cover;
+
+        /* */
+        position: absolute;
+        /*  top , left, right, bottom  */
+        left: 30px;
+        top: 10px;
+      }
+
+      /*검색바 css*/
+      header .search {
+        width: 300px;
+        height: 50px;
+        border: 1px solid black;
+
+        display: flex;
+
+        position: absolute;
+        right: 0px;
+        bottom: 5px;
+      }
+
+      .search input {
+        width: 230px;
+        margin-left: 20px;
+
+        border: none;
+        outline: none;
+      }
+
+      .search_btn {
+        margin-top: 5px;
+        width: 40px;
+        height: 40px;
+        background-color: antiquewhite;
+        background-image: url(https://previews.123rf.com/images/swavo/swavo1409/swavo140900005/31571158-%EB%8F%8B%EB%B3%B4%EA%B8%B0-%EC%95%84%EC%9D%B4%EC%BD%98.jpg);
+        background-position: center;
+        background-size: cover;
+      }
+
+      /*  nav*/
+      nav ul {
+        list-style: none;
+        /* */
+        display: flex;
+      }
+      nav ul li {
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+
+      /* 목록만들기*/
+
+      section ul {
+        width: 900px;
+        /* border: 1px solid black; */
+
+        list-style: none;
+
+        margin: 0px;
+        padding: 0px;
+
+        display: flex;
+        flex-wrap: wrap;
+
+        margin: 0 auto;
+      }
+
+      section ul li {
+        width: 280px;
+        height: 300px;
+        border: 0.5px solid rgb(233, 220, 220);
+
+        padding: 10px;
+        box-sizing: border-box; /* 패딩을 추가해도 박스의 크기가 커지지 않음 */
+
+        text-align: center;
+        margin-left: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <!--로고 이미지-->
+        <div class="img"></div>
+
+        <!--검색바-->
+        <div class="search">
+          <input type="text" />
+          <div class="search_btn"></div>
+        </div>
+      </header>
+      <nav>
+        <ul>
+          <li><a href="login.html"> 로그인</a></li>
+          <li><a href="joinus.html"> 회원가입</a></li>
+          <li><a href="index4.html"> 홈으로</a></li>
+        </ul>
+      </nav>
+      <section>
+        <ul>
+          <li>
+            <img src="./images/img01.png" />
+            <p>자바웹개발과정</p>
+            <p>07.01개강</p>
+          </li>
+
+          <li>
+            <img src="./images/img01.png" />
+            <p>자바웹개발과정</p>
+            <p>07.01개강</p>
+          </li>
+
+          <li>
+            <img src="./images/img01.png" />
+            <p>자바웹개발과정</p>
+            <p>07.01개강</p>
+          </li>
+
+          <li>
+            <img src="./images/img01.png" />
+            <p>자바웹개발과정</p>
+            <p>07.01개강</p>
+          </li>
+
+          <li>
+            <img src="./images/img01.png" />
+            <p>자바웹개발과정</p>
+            <p>07.01개강</p>
+          </li>
+
+          <li>
+            <img src="./images/img01.png" />
+            <p>자바웹개발과정</p>
+            <p>07.01개강</p>
+          </li>
+        </ul>
+      </section>
+      <footer>
+        <div><img src="images/footer_acorn.png" /></div>
+        <div>(주)에이콘이즈 에이콘아카데미(홍대)</div>
+        <div>COPYRIGHT(C) HBILAB ALL RIGHTS RESERVED.</div>
+      </footer>
+    </div>
+  </body>
+</html>
