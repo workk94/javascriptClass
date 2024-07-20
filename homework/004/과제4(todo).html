@@ -64,7 +64,7 @@
       <!-- header-->
       <header>
         <h2>오늘은 😊</h2>
-        <div>Mon jan 02</div>
+        <div id="today"></div>
       </header>
 
       <!-- todo 작성 영역 -->
@@ -105,7 +105,34 @@
       addBtn.addEventListener('click', addList);
       delBtn.addEventListener('click', deleteList);
 
-      function showList() {}
+      window.onload = getToday();
+
+      function getToday() {
+        const years = [
+          'Jan',
+          'Feb',
+          'Mar',
+          'Apr',
+          'May',
+          'Jun',
+          'Jul',
+          'Aug',
+          'Sep',
+          'Oct',
+          'Nov',
+          'Dec',
+        ];
+        const weeks = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+        let today = new Date();
+        let month = today.getMonth(); // 월
+        let date = today.getDate(); // 일
+        let day = today.getDay(); // 요일
+
+        document.getElementById(
+          'today'
+        ).innerHTML = `${weeks[day]} ${years[month]} ${date} `;
+      }
 
       function addList() {}
 
