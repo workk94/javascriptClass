@@ -134,7 +134,36 @@
         ).innerHTML = `${weeks[day]} ${years[month]} ${date} `;
       }
 
-      function addList() {}
+      function addList() {
+        let text = document.querySelector('.todoEditWrap > input').value;
+
+        let newTodoItem = document.createElement('div');
+        newTodoItem.classList.add('todoItem');
+        let checkboxCol = document.createElement('div');
+        checkboxCol.classList.add('checkbox_col');
+        let newCheckBox = document.createElement('input');
+        newCheckBox.type = 'checkbox';
+        checkboxCol.appendChild(newCheckBox);
+        let titleCol = document.createElement('div');
+        titleCol.classList.add('title_col');
+        let textNode = document.createTextNode(text);
+        titleCol.appendChild(textNode);
+        let dateCol = document.createElement('div');
+        dateCol.classList.add('date_col');
+        let btnCol = document.createElement('div');
+        btnCol.classList.add('btn_col');
+        let newBtn = document.createElement('button');
+        newBtn.setAttribute('id', 'delBtn');
+        newBtn.textContent = '삭제';
+        btnCol.appendChild(newBtn);
+
+        newTodoItem.appendChild(checkboxCol);
+        newTodoItem.appendChild(titleCol);
+        newTodoItem.appendChild(dateCol);
+        newTodoItem.appendChild(btnCol);
+
+        document.querySelector('.todoItem').parentNode.appendChild(newTodoItem);
+      }
 
       function deleteList() {}
     </script>
