@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let search = ['과자', '수박', '선크림'];
+
+      // 저장
+      // 1. 문자열화 시킨다
+      // 2. 로컬저장소에 저장한다
+
+      let searchString = JSON.stringify(search);
+      console.log(searchString);
+      localStorage.setItem('search', searchString);
+
+      // 가져오기(읽어오기)
+      let readSearchString = localStorage.getItem('search');
+      console.log(readSearchString);
+
+      //배열로 변환하기
+      let readSearch = JSON.parse(readSearchString);
+      console.log(readSearch);
+    </script>
+  </body>
+</html>

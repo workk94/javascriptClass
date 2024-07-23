@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul class="list"></ul>
+
+    <script>
+      let fruits = ['apple', 'banana', 'melon'];
+
+      // 로컬 저장소 저장
+      function saveFruits() {
+        localStorage.setItem('fruits', JSON.stringify(fruits));
+      }
+
+      function initFruits() {
+        let saveList = localStorage.getItem('fruits');
+
+        if (saveList != null) {
+          fruits = JSON.parse(saveList);
+        }
+
+        // 화면에 보여주기
+        let str = '';
+        for (let i = 0; i < fruits.length; i++) {
+          str += `<li data-id="${i}">${fruits[i]}<button class="delete-btn"> X </button></li>`;
+        }
+        let list = document.querySelector('.list');
+        list.innerHTML = str;
+      }
+
+      saveFruits();
+      initFruits();
+
+      document.querySelector('.list').addEventListener('click', (e) => {
+        if (e.target.classList.contains('delete-btn')) {
+          e.target.parentElement.remove();
+          alert('아이템이 삭제되었습니다.');
+        }
+      });
+    </script>
+  </body>
+</html>
