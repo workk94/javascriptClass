@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+
+
+        .wrap{
+            width: 500px;
+            border:1px solid black;
+            padding: 20px;
+
+            margin:  0 auto;
+            box-sizing: border-box;
+        }
+
+        .header{
+            border:1px solid black;
+            border-color: gainsboro;
+            background-color: gainsboro;
+            padding: 30px;
+            text-align: center;
+            border-radius: 5px;
+
+
+        }
+
+        .header h3{
+            margin-bottom: 10px;
+        }
+        .todoEdit{
+            border:1px solid black;
+
+            margin-top: 20px;
+        }
+
+       
+
+        .edit_wrap{
+            border:1px solid black;
+
+            display: flex;
+        }
+
+        .todo_col{
+            border:1px solid black;
+            width: 80%;
+        }
+        .regBtn_col{
+            width: 20%;
+            border:1px solid black;
+            width: 20%;           
+          
+        }
+
+        .regBtn_col button{
+            width: 100%;
+            height: 30px;
+        }
+
+        .todo_col input{
+            width: 80%;
+            margin-left: 20px;
+            margin-top: 10px;
+
+            border: 0px;
+            outline: none;
+        }
+
+
+        .todoList{
+            border:1px solid black;
+            margin-top: 30px;
+        }
+
+        .search{
+            border: 1px solid black;;
+        }
+
+        .search input{
+            width: 100%;
+            height: 40px;
+        }
+        .todoItemWrap{
+            width: 100%;
+            border:1px solid black;
+           
+        }
+        
+
+        .todoItem{
+            width: 100%;
+            border: 1px solid black;
+            display: flex; 
+        }
+
+        .todoItem > div{
+            border: 1px solid black;
+        }
+
+        .title_col{
+             width:80%;
+        }
+
+
+        .delBtn_col  button{
+            width: 80px;
+            height: 30px;
+            border: none;
+            border-radius: 5px;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+
+        <!--header-->
+        <div class="header">
+            <h3>오늘은 😁</h3>
+            <p> 07-24</p>
+        </div>
+
+        <!--todoEdit-->
+        <div class="todoEdit">
+            <h4>새로운 todo 작성하기</h4>
+            <div class="edit_wrap">
+                <div class="todo_col"> <input type="text"></div>
+                <div class="regBtn_col"><button>등록</button></div>
+            </div>
+
+        </div>
+
+        <!--todoList-->
+        <div class="todoList">
+            <h3>todoList</h3>
+            <div class="search"> <input type="text"  placeholder="검색어를 입력"></div>
+
+            <!-- todoItem 목록 영역-->
+             <div class="todoItemWrap">
+                <!-- todoItem-->
+                 <div class="todoItem">
+                    <div class="checkbox_col"> <input type="checkbox">  </div>
+                    <div class="title_col">d</div>
+                    <div class="date_col">d</div>
+                    <div class="delBtn_col"><button>삭제</button> </div>
+                 </div>
+             </div>
+        </div>
+
+    </div>
+    
+</body>
+</html>

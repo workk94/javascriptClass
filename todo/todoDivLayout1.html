@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+    
+	    *{
+            padding:0px;
+            margin:0px;
+	    }
+	    .wrap{
+            max-width: 500px;
+            width: 100%;
+            margin: 0 auto;
+            box-sizing: border-box;
+            padding: 20px;
+            border:1px solid black; 
+        }
+
+
+        header{
+            padding: 20px;             
+            background-color: gainsboro;
+            height: 100px;
+            margin-bottom: 20px;
+         
+        }
+
+        .todoEdit{
+            border:1px solid black;
+        }
+
+        .todoEditWrap{         
+            display: flex;    
+            border:1px solid rgb(20, 20, 20);    
+            margin-bottom: 30px; 
+            margin-top:10px;  
+            height: 50px; 
+        }
+
+
+        .todoEditWrap .todo_col{
+          width:80%;
+             
+        }
+
+		.todoEditWrap .reg_col{
+			width: 20%;
+            border:1px solid black;
+		}
+		
+		
+		
+         .todoList{
+            margin-top: 10px;
+            border:1px solid black;
+         }
+        
+        
+        .search{
+        	margin-top:20px;
+            border:1px solid black;
+            height: 50px;
+        }
+       
+
+
+        .todoItemWrap{           
+           margin-top: 30px;
+           border: 1px solid black;
+           padding: 10px;
+        }
+
+
+        .todoItem{
+             height: 50px;    
+             border:1px solid black;         
+        }
+
+        
+    </style>
+
+    
+
+
+</head>
+<body>
+
+    <div class="wrap">
+
+        <!-- header-->
+       <header>
+          header☺
+       </header>
+
+       <!-- todo 작성 영역 -->
+       <div class="todoEdit">
+        <h4>새로운 todo 작성하기🖊</h4>
+        <div class="todoEditWrap">
+           <div class="todo_col"> 일정등록</div>
+           <div class="reg_col"> 버튼</div>
+        </div>
+       </div>
+
+       <!-- todo list-->
+       <div class="todoList">
+            <h4>Todo List</h4>
+            <!-- 검색영역-->
+            <div class="search"> 
+                 search
+            </div>
+
+            <!-- 일정 item 영역-->
+            <div  class="todoItemWrap"> 
+                <!--item -->
+                <div class="todoItem">
+                    item1
+                </div>
+                <div class="todoItem">
+                    item2
+                </div>
+            </div>
+       </div>
+    </div>    
+</body>
+</html>
