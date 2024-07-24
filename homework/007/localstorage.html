@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="text" type="text" />
+    <button id="btn">입력</button>
+
+    <script>
+      let text = document.querySelector('#text');
+      const btn = document.querySelector('#btn');
+
+      btn.addEventListener('click', () => {
+        let today = new Date();
+        if (
+          localStorage.getItem('exp') !== undefined ||
+          localStorage.getItem('exp') !== null ||
+          localStorage.getIem('exp') !== ''
+        ) {
+          const expire = text.value;
+          localStorage.setItem('exp', expire);
+        } else {
+          console.log('no key');
+        }
+      });
+    </script>
+  </body>
+</html>
