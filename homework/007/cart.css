@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  border-collapse: separate;
+}
+
+th,
+td {
+  width: 1000px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid gray;
+  text-align: center;
+}
+
+caption {
+  text-align: left;
+}
+
+.cart-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.view {
+  width: 300px;
+  height: 50px;
+  border: 1px solid black;
+}
+
+.cart-drop p {
+  display: inline;
+}
