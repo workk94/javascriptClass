@@ -1,4 +1,4 @@
-import { items } from './module.js';
+import { itemsList } from './module.js';
 
 window.onload = showItem;
 
@@ -6,19 +6,18 @@ const delBtn = document.querySelector('#drop');
 const addTotalBtn = document.querySelector('#addTotalBtn');
 
 addTotalBtn.addEventListener('click', () => {
+  let view = document.querySelector('.view');
   let sum = 0;
-  const priceLIst = items.productPrice;
-  const qtyList = items.productId;
-  priceLIst.forEach((e, j) => {
-    sum = priceLIst[e] * qtyList[j];
-  });
-  console.log(sum);
-  //   console.log(priceLIst);
+  for (let i = 0; i < itemsList.length; i++) {
+    sum += itemsList[i].productPrice * itemsList[i].cart_qty;
+  }
+  view.innerHTML = `${sum} = 원`;
 });
 
 delBtn.addEventListener('click', () => {
   let frm = document.querySelector('#frm');
   let checkboxList = frm.querySelectorAll('input[name="del"]');
+
   for (let i = 0; i < checkboxList.length; i++) {
     if (checkboxList[i].checked) {
       checkboxList[i].closest('tr').remove();
@@ -26,27 +25,25 @@ delBtn.addEventListener('click', () => {
   }
 });
 
-// 객체에 있는 정보를 빼서 카트안에 집어 넣는 기능
 function showItem() {
   let tbody = document.querySelector('tbody');
   tbody.innerHTML = '';
-  if (items.productId.length == 0) {
+  if (itemsList.length == 0) {
     console.log('아이템이 없습니다');
     return;
   }
-  for (let i = 0; i < items.productId.length; i++) {
+  for (let i = 0; i < itemsList.length; i++) {
     tbody.innerHTML += `
                 <tr>
                     <td><input id="selectDel" type="checkbox" name="del"></td>
-                    <td><img src="${items.imgUrl[i]}" alt="Product Image" width="50" height="50"></td>
-                    <td>${items.productName[i]}</td>
+                    <td><img src="${itemsList[i].imgUrl}" alt="Product Image"></td>
+                    <td>${itemsList[i].productName}</td>
                     <td><input type="number" min="0" max="99" placeholder="1" /></td>
-                    <td>${items.productPrice[i]}</td>
+                    <td>${itemsList[i].productPrice}</td>
                 </tr>
             `;
   }
 }
 
-// Placeholder functions for future development
 // function getCartItem() {}
 // function delCartItem() {}
