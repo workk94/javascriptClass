@@ -3,8 +3,9 @@ body {
   padding: 0;
 }
 
+/* 주문 테이블 */
 table {
-  border-collapse: separate;
+  border-collapse: collapse;
 }
 
 th,
@@ -19,17 +20,25 @@ caption {
   text-align: left;
 }
 
-.cart-wrap {
+/* 테이블 하단 */
+.cart-details-wrap {
+  border: 1px solid;
   display: flex;
   justify-content: space-between;
 }
-
-.view {
-  width: 300px;
-  height: 50px;
+.cart-drop-wrap {
   border: 1px solid black;
 }
+.cart-drop-wrap > p {
+  display: block;
+}
+.drop-item {
+}
+.cart-price-wrap {
+}
 
-.cart-drop p {
-  display: inline;
+.cart-price {
+  width: 300px;
+  height: 30px;
+  border: 1px solid black;
 }

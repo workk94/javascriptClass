@@ -1,5 +1,4 @@
 import { itemsList } from './module.js';
-
 window.onload = showItem;
 
 const delBtn = document.querySelector('#drop');
@@ -11,7 +10,7 @@ addTotalBtn.addEventListener('click', () => {
   for (let i = 0; i < itemsList.length; i++) {
     sum += itemsList[i].productPrice * itemsList[i].cart_qty;
   }
-  view.innerHTML = `${sum} = 원`;
+  view.innerHTML = `총 금액 ${sum}원`;
 });
 
 delBtn.addEventListener('click', () => {
