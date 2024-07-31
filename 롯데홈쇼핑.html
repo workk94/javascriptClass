@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>롯데홈쇼핑 </title>
+    <style>
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #ff6347;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {    
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.search-section {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.search-section input {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+}
+
+.search-section button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #ff6347;
+    color: white;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.results-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.result-item {
+    display: flex;   
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+ 
+
+.result-item button {
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+footer {
+    background-color: #ff6347;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>롯데홈쇼핑</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">홈</a></li>
+                    <li><a href="#">카테고리</a></li>                  
+                    <li><a href="#">고객센터</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="search-section">
+                <input type="text" id="searchInput" placeholder="검색어를 입력하세요..." >
+                <button onclick="search()">검색</button>
+            </section>
+            <section class="results-section" id="results">
+                <!-- 검색 결과가 여기 표시됩니다 -->
+            </section>
+        </main>
+        <footer>
+            <p>   롯데홈쇼핑</p>
+        </footer>
+    </div>
+
+    <script>
+        function search() {
+            const searchInput = document.getElementById('searchInput');
+            const resultsSection = document.getElementById('results');
+            
+            if (searchInput.value.trim() === '') {
+                resultsSection.innerHTML = '';
+                return;
+            }
+
+            // 검색 결과를 예시로 보여줌
+            resultsSection.innerHTML = `
+                <div class="result-item">
+                    <div>
+                        <h2>검색 결과 1: ${searchInput.value}</h2>
+                       
+                    </div>
+                    <button onclick="deleteResult(this)">삭제</button>
+                </div>
+                <div class="result-item">
+                    <div>
+                        <h2>검색 결과 2: ${searchInput.value}</h2>
+                        
+                    </div>
+                    <button onclick="deleteResult(this)">삭제</button>
+                </div>
+                <div class="result-item">
+                    <div>
+                        <h2>검색 결과 3: ${searchInput.value}</h2>
+                         
+                    </div>
+                    <button onclick="deleteResult(this)">삭제</button>
+                </div>
+            `;
+            searchInput.value = ''; // 검색어 삭제
+        }
+
+
+        function deleteResult(button) {
+            const resultItem = button.parentElement;
+            resultItem.remove();
+            event.stopPropagation(); 
+        }
+
+        document.body.addEventListener('click', function() {
+            const resultsSection = document.getElementById('results');
+            resultsSection.innerHTML = '';
+            document.getElementById('searchInput').value = ''; // 검색어 삭제
+        });
+
+        document.querySelector('.search-section').addEventListener('click', function(event) {
+         event.stopPropagation();
+        });
+    </script>
+</body>
+</html>
