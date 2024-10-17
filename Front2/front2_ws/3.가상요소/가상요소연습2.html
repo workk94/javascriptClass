@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가상 요소 연습</title>
+    <style>
+
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+
+        ul li{
+            margin: 15px;
+            border :1px solid black;
+            position: relative;
+
+            width: 200px;
+            height: 30px;
+
+        }
+        
+
+        /*  주문내역을 기준으로 원하는 위치에 배치를 하고 싶다면 
+            1. 부모영역을  position : relative 정한다
+            2. 배치할 요소를 position: absolute 정한다
+        */
+        .new::after{
+            content: "NEW!!";  /* 주의 !! */
+            background-color: red;
+            color: aliceblue;
+            border-radius: 5px;
+            font-size: 10px;  
+            padding: 10px;
+            position: absolute;
+            right:  0px;
+          
+            top:-10px;
+        }
+
+
+
+        .popu::before{
+            content: "주문폭주!!";
+            background-color: green;
+            font-size: 14px;
+            color: aliceblue;
+            padding: 2px 4px;
+            margin-right: 10px;
+            border-radius: 5px; /*둥글게*/
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>제품 목록</h1>
+        <ul>
+            <li class="popu">제품 A</li>
+            <li>제품 B</li>
+            <li>제품 C</li>
+            <li class="new">제품 D</li>
+            <li>제품 E</li>
+        </ul>
+    </div>
+</body>
+</html>

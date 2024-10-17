@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .wrap {
+        width: 900px;
+        margin: 0 auto;
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+      table {
+        width: 900px;
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      table caption {
+        font-weight: bold;
+        font-size: 20px;
+        padding: 30px;
+      }
+      td,
+      th {
+        border: 1px solid black;
+        width: 200px;
+        height: 50px;
+      }
+
+      .total_wrap {
+      }
+      #total-price {
+        color: red;
+      }
+      #order {
+        line-height: 50px;
+        border: 1px solid black;
+        height: 50px;
+        text-align: right;
+        font-weight: bold;
+      }
+    </style>
+
+    <script>
+      function calPrice(obj) {
+        let qty = obj.value;
+        let priceTag = obj.parentElement.previousElementSibling;
+        let amtTag = obj.parentElement.nextElementSibling;
+
+        let price = parseInt(priceTag.innerHTML);
+        amtTag.innerHTML = price * qty;
+        totalPrice();
+      }
+
+      function totalPrice() {
+        let amts = document.querySelectorAll('.amt');
+        let sum = 0;
+
+        for (let i = 0; i < amts.length; i++) {
+          let item = amts[i];
+          let amount = parseInt(item.innerHTML);
+          sum += amount;
+        }
+        document.querySelector('#total-price').innerHTML = sum;
+      }
+
+      function itemDelete() {
+        let checkboxs = document.querySelectorAll('.cb');
+
+        for (let i = 0; i < checkboxs.length; i++) {
+          let item = checkboxs[i];
+          if (item.checked) {
+            let tr = item.parentElement.parentElement;
+            tr.remove();
+          }
+        }
+        totalPrice();
+      }
+    </script>
+  </head>
+  <body>
+    <div class="wrap">
+      <table>
+        <caption>
+          카페
+        </caption>
+
+        <thead>
+          <tr>
+            <th>선택</th>
+            <th>제품명</th>
+            <th>단가</th>
+            <th>수량</th>
+            <th>금액</th>
+          </tr>
+        </thead>
+
+        <tbody id="list">
+          <tr>
+            <td><input type="checkbox" class="cb" /></td>
+            <td>아메리카노</td>
+            <td>4500</td>
+            <td><input type="text" value="1" onkeyup="calPrice(this)" /></td>
+            <td class="amt">4500</td>
+          </tr>
+
+          <tr>
+            <td><input type="checkbox" class="cb" /></td>
+            <td>카페라떼</td>
+            <td>5000</td>
+            <td><input type="text" value="1" onkeyup="calPrice(this)" /></td>
+            <td class="amt">5000</td>
+          </tr>
+
+          <tr>
+            <td><input type="checkbox" class="cb" /></td>
+            <td>바닐라라떼</td>
+            <td>5500</td>
+            <td><input type="text" value="1" onkeyup="calPrice(this)" /></td>
+            <td class="amt">5500</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="total_wrap">
+        <p>
+          <button onclick="itemDelete()">삭제</button>
+        </p>
+        <p id="order">
+          총 결제 금액
+          <span id="total-price">0</span>원
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

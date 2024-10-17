@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .info{
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background-color: aqua;
+            right: -500px;
+            transition: 0.5s;
+        }
+
+        .info.show {
+            right: 10px;
+        }
+    </style>
+
+    <script>
+        function showInfo(){
+            let info = document.querySelector(".info");
+            info.classList.toggle("show"); 
+        }
+    </script>
+ 
+</head>
+<body>
+
+    <button onclick="showInfo()">클릭</button>
+    <div class="info"> </div>    
+    
+</body>
+</html>

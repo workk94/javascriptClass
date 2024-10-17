@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Order</title>
+    <style>
+        table {
+            width: 900px;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        td, th {
+            border: 1px solid black;
+            width: 200px;
+        }
+    </style>
+    <script>
+        function calPrice(obj) {
+            let qty = obj.value;
+            let price = obj.parentElement.previousElementSibling.textContent;
+            let totalPrice = parseInt(price) * parseInt(qty);
+            obj.parentElement.nextElementSibling.textContent = totalPrice;
+            updateTotalPrice();
+            
+        }
+
+        function updateTotalPrice() {
+            const span = document.querySelector("#total-price");
+            const rows = document.querySelectorAll("#list tr");
+            let total = 0;
+
+            rows.forEach(row => {
+                const price = parseInt(row.lastElementChild.innerHTML, 10);
+                total += price;
+            });
+
+            span.innerHTML = total;
+        }
+
+        function deletelist() {
+            const list = document.getElementById("list");
+            const boxes = document.querySelectorAll(".cb:checked");
+
+            boxes.forEach(box => {
+                const tr = box.closest('tr');
+                list.removeChild(tr);
+            });
+
+            updateTotalPrice();
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <table>
+            <caption>카페</caption>
+            <thead>
+                <tr>
+                    <th>선택</th>
+                    <th>제품명</th>
+                    <th>금액</th>
+                    <th>수량</th>
+                    <th>결제금액</th>
+                </tr>
+            </thead>
+            <tbody id="list">
+                <tr>
+                    <td><input type="checkbox" class="cb"></td>
+                    <td>아메리카노</td>
+                    <td>4500</td>
+                    <td><input type="text" value="0" onkeyup="calPrice(this)"></td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="cb"></td>
+                    <td>카페라떼</td>
+                    <td>5000</td>
+                    <td><input type="text" value="0" onkeyup="calPrice(this)"></td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="cb"></td>
+                    <td>바닐라라떼</td>
+                    <td>5500</td>
+                    <td><input type="text" value="0" onkeyup="calPrice(this)"></td>
+                    <td>0</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <p>
+            <button onclick="deletelist()">삭제</button>
+        </p>
+        <p id="total">
+            총 결제 금액 <span id="total-price">0</span> 원
+        </p>
+    </div>
+</body>
+</html>

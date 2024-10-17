@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //함수
+      //클릭이벤트를 처리하는 핸들러함수
+      function showMessage(e) {
+        alert('클릭 되었어요 ');
+        console.log(e);
+        console.log(event);
+      }
+
+      //a함수 : 일반함수
+      function a() {
+        alert('  a함수');
+        console.log(event);
+      }
+      a();
+    </script>
+  </head>
+  <body>
+    <h3>이벤트를 처리하는 방법 1</h3>
+    <button onclick="showMessage(event)">클릭</button>
+  </body>
+</html>

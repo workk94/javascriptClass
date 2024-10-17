@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ 
+
+
+    <script> 
+     function createE(){
+        alert("dfdfd");
+
+        //태그생성, 추가 
+        //부모를 선택한다
+        //부모에 추가한다
+
+        let ul = document.getElementById("result");
+        let li = document.createElement("li");
+        li.innerHTML="사과";
+        ul.appendChild( li); 
+
+
+        //li 태그 클릭시 삭제하기
+        li.addEventListener("click" , function(){
+             // let p =   this.parentElement;    
+            // p.removeChild(li);     
+            this.remove();
+        });
+     }
+
+
+    </script>
+</head>
+<body>
+    
+
+    <button  onclick="createE()"> 클릭</button>
+    <ul  id="result">
+    </ul>
+</body>
+</html>

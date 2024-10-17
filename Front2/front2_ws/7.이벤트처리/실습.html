@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">클릭</button>
+
+    <script>
+      let btn = document.querySelector('#btn');
+
+      //이벤트 이름, 함수(콜백함수) - 익명함수, 이름있는 함수
+      //   btn.addEventListener('click', function () {
+      //     alert('나 클릭');
+      //   });
+
+      //화살표함수 =>
+
+      //   btn.addEventListener('click', () => {
+      //     alert('나클릭');
+      //   });
+
+      //   btn.addEventListener('click', a);
+
+      //   function a() {
+      //     alert('나클릭');
+      //   }
+
+      btn.addEventListener('click', function () {
+        alert('클릭되었어');
+      });
+    </script>
+  </body>
+</html>

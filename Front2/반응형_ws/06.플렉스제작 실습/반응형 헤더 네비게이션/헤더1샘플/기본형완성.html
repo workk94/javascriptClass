@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <style>
+
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        ul{
+            list-style: none;
+        }
+
+
+        header{
+            height: 60px;
+            display: flex;            
+            /* border:1px solid black;*/
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(168, 168, 199);
+        }
+
+
+
+        .inner{
+            width: 1280px;
+            /*border :1px solid black;*/
+            display: flex;
+            justify-content: space-between; 
+
+            position: relative;   
+        }
+
+
+        /* 메뉴가 옆으로 나오게 */
+        .gnb , .sns{
+            display: flex;
+            flex-direction: row;            
+        } 
+
+
+        .gnb li{ padding-right: 5px;}
+
+
+        /*햄버거아이콘 안보이기*/
+
+           .trigger{
+            display: none;
+            position: absolute;
+            right: 10px;
+            top:0px
+           }
+ 
+           
+         
+           /*
+           
+           반응형코드
+           1.  (햄버거 아이콘)트리거영역 보이기 
+           2.  헤더의 높이를 auto 로 설정 ( content만큼으로 높이가 정해짐)
+           3.  inner영역의 flex방향을 컬럼( 세로) 변경
+           4.  메뉴영역의 flex방향을 컬럼(세로) 변경
+           5.  sns영역의  내용을 가운데 정렬
+           */
+
+           /*  미디어 쿼리  */
+
+           @media screen and ( max-width: 768px) {
+            
+            /*햄버거 아이콘 보이기*/
+           .trigger{
+            display: block;
+           }
+
+
+            header{
+                padding: 10px;
+                height: auto;   /*   content만큼의 크기로 다시 */
+            }
+            
+
+            .inner{
+                width: 100%;
+                flex-direction: column;  
+            }
+
+
+
+            .sns a{ 
+                padding-right: 5px;
+            }
+
+
+            .gnb, .sns{
+                display: none;  
+            }
+
+            
+
+            
+            .gnb.on {
+                display: flex; 
+                flex-direction: column;             
+                text-align: center;                
+                border-top: 1px solid rgba(0, 0, 0, 0.1);
+                /* border:1px solid red; */
+
+                padding-top: 10px;
+                padding-bottom: 10px;                 
+                margin-top: 10px;
+            }
+             
+             .sns.on{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                padding: 10px;                 
+                background-color: rgb(168, 168, 199);
+                /*border:1px solid red;  */
+            }
+
+
+
+           }
+    </style>
+</head>
+<body>
+    
+
+    
+    <header>
+
+        <div class="inner">
+            <!--로고-->
+            <div class="logo">로고</div>
+
+            <!--메뉴-->
+            <ul class="gnb"> 
+                <li> 메뉴1</li>
+                <li> 메뉴2</li>
+            </ul>
+
+            <!--sns-->
+            <div class="sns">
+                <a href="#none"><i class="fa fa-facebook"></i></a>
+				<a href="#none"><i class="fa fa-twitter"></i></a>
+				<a href="#none"><i class="fa fa-youtube-play"></i></a>
+            </div>
+
+            <!--햄버거아이콘-->
+            <div class="trigger">햄</div>
+        </div>
+
+    </header>
+
+
+    <script>
+		$('.trigger').click(function(){		 
+			$('.gnb, .sns').toggleClass('on')
+		})
+	</script>
+</body>
+</html>

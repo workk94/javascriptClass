@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+     
+</head>
+<body>
+    
+
+    <input type="text" id="userid"  >
+
+
+    <script>
+
+        // 태그에 동적으로 이벤트를 추가하는 방법 : addEventListener( "이벤트이름"  , 해야할코드(함수) ) 매서드 사용하기 
+        let userid  = document.querySelector("#userid");
+        userid.addEventListener("focus" , function(){
+            this.style.backgroundColor="blue";
+        });
+
+
+        userid.addEventListener("blur" ,  a);
+        
+        function a(){
+            this.style.backgroundColor="white";
+        }
+
+        
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 함수 만들기
+
+      function a() {
+        alert('나는 함수다');
+      }
+
+      function b(num) {
+        for (let i = 0; i <= num; i++) {
+          alert('나는 함수다');
+        }
+      }
+
+      function c() {
+        return 5;
+      }
+
+      function d() {
+        let lottos = [7, 16, 7, 34, 37];
+        return lottos;
+      }
+
+      function e() {
+        const randomNum = Math.random() * 10;
+        let lottos = [
+          [7, 16, 7, 34, 37],
+          [6, 8, 7, 34, 37],
+          [7, 43, 7, 34, 37],
+          [7, 44, 7, 34, 37],
+        ];
+        return lottos;
+      }
+
+      // 함수 : 특정 기능을 수행하기 위한 코드 덩어리(명령어 모음)
+      console.log(a());
+      console.log(b(3));
+      console.log(c());
+      console.log(d());
+      console.log(e());
+    </script>
+  </body>
+</html>

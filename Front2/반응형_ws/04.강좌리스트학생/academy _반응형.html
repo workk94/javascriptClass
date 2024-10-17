@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academy</title>
+    <style>
+        .wrap{
+            /* border: 1px solid black; */
+            margin: 0 auto;
+        }
+        .class-header{
+            width: 95%;
+            margin: 0 auto;
+        }
+        h1::after{
+            content: ">";
+            margin-left: 10px;
+        }
+        .content{
+            width: 95%;
+            margin: 0 auto;
+            display: flex;
+            margin-top: 20px;
+        }
+        .item{
+            width: 23%;
+            height: 430px;
+            /* border: 1px solid black; */
+            margin: 0 auto;
+        }
+        img{
+            width: 100%;
+        }
+        .category{
+            color: deepskyblue;
+            font-weight: bold;
+            display: block;
+        }
+        .price{
+            color: royalblue;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .badge{
+            background-color: pink;
+            padding: 2px;
+            border-radius: 5px;
+        }
+        @media(max-width: 768px){
+            .content{
+                flex-direction: column;
+            }
+            .item{
+                width: 100%;
+                margin: 50px auto;
+            }
+            /* order   속성을 지정하지 않으면  0이다*/
+            .i1 {
+                order: 2;
+            }
+            .i2 {
+                order: 3;
+            }
+            .i3 {
+                order: 1;
+            }
+            .i4 {
+                order: 4;
+            }
+
+            .badge{
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="class-header">
+            <h1> 샘플 아카데미</h1>
+            <p>
+                이미 검증된 쉽고 친절한 입문 강의들!!   취업을 위한 가장 인기가 많은 강의들을 확인해 보세요!
+            </p>
+        </div>
+        <div class="content">
+            <div class="item i1">
+                <img src="images/course-01.png">
+                <h4>HTML+CSS+JQUERY 반응형 웹사이트 포트폴리오(Architecture Agency)</h4>
+                <span class="category">웹개발, 중급</span>                
+                <span class="price">￦11,600</span>
+                <span class="badge">베스트셀러</span>
+            </div>
+    
+            <div class="item i2">
+                <img src="images/course-02.png">
+                <h4>HTML+CSS+JQUERY 반응형 웹사이트 포트폴리오(Architecture Agency)</h4>
+                <span class="category">웹개발, 중급</span>                
+                <span class="price">￦22,600</span>
+                <span class="badge">베스트셀러</span>
+            </div>
+    
+            <div class="item i3">
+                <img src="images/course-03.png">
+                <h4>HTML+CSS+JQUERY 반응형 웹사이트 포트폴리오(Architecture Agency)</h4>
+                <span class="category">웹개발, 중급</span>                
+                <span class="price">￦33,600</span>
+                <span class="badge">베스트셀러</span>
+            </div>
+    
+            <div class="item i4">
+                <img src="images/course-01.png">
+                <h4>HTML+CSS+JQUERY 반응형 웹사이트 포트폴리오(Architecture Agency)</h4>
+                <span class="category">웹개발, 중급</span>                
+                <span class="price">￦44,600</span>
+                <span class="badge">베스트셀러</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

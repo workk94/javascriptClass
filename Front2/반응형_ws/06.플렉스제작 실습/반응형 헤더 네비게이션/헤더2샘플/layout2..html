@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+
+
+    *{
+        padding: 0px;
+        margin: 0px;
+    }
+         header{
+            border:1px solid black;
+            padding: 20px;
+            background-color: antiquewhite;
+         }
+
+
+         header .inner{
+
+            width: 1200px;
+            border:1px solid black;
+            margin :0 auto;
+
+            position: relative;
+
+
+            display: flex;
+         }
+
+
+
+         .inner > div{
+            border:1px solid black;
+         }
+
+         .logo{
+            flex:1;
+         }
+
+         .gnb{
+            flex:6;
+
+            /*메뉴배치  가운데*/
+
+            display: flex;
+            justify-content: center;
+
+         }
+
+         .sns{
+            flex:1;
+         }
+
+
+         /*  trigger영역안보이기 */
+
+         .trigger{
+            display: none;
+
+
+            position: absolute;
+            right: 0px;
+         }
+
+
+
+         /*  메뉴 영역*/
+
+         
+         .gnb ul{
+
+            list-style: none;
+            display: flex;
+
+            border: 1px solid black;
+
+         }
+
+
+
+         /*  모바일 구간  */
+         @media (max-width: 768px) {
+
+
+           /*
+
+           1.inner 크기 100%
+           2. header flex -direction:  column   // 세로로 배치 
+           3. 메뉴도 세로로 나오게 
+           4. trigger영역보이도록
+           */
+
+           header{
+           
+           }
+           header .inner{
+            width: 100%;
+            flex-direction: column;
+           }
+
+
+           .gnb ul{
+
+            flex-direction: column;
+            padding: 10px 0px;
+           }
+
+
+           .trigger{
+            display: block;
+           }
+
+
+           /*  sns  gnb 영역 안보이기*/
+           .gnb, .sns{
+                display: none;
+            }
+         }
+
+
+
+
+    </style>
+</head>
+<body>
+    
+
+
+    <header>
+
+        <div class="inner">
+
+            <div class="logo">로고</div>
+            <div class="gnb">
+                <ul>
+                    <li>메뉴1</li>
+                    <li>메뉴2</li>
+                    <li>메뉴3</li>
+                </ul>
+            </div>
+            <div class="sns">sns</div>
+            <div class="trigger">햄</div>
+
+        </div>
+    </header>
+</body>
+</html>

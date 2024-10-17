@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function a() {
+        alert('클릭');
+        event.stopPropagation();
+      }
+
+      function a2(e) {
+        alert('클릭2');
+
+        e.stopPropagation();
+      }
+
+      function b() {
+        alert('부모 클릭');
+      }
+    </script>
+
+    <style>
+      .wrap {
+        width: 200px;
+        height: 200px;
+        background-color: aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap" onclick="b() ">
+      <button onclick="a()">버튼</button>
+      <button onclick="a2(event)">버튼</button>
+    </div>
+  </body>
+</html>

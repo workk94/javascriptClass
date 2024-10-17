@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function show() {
+        console.log('hi');
+      }
+      let time;
+      function hide() {
+        if (time != null) {
+          clearTimeout(time);
+        }
+        //setTimeout(함수, 시간)
+        //함수(콜백함수)
+        time = setTimeout(function () {
+          console.log('bye');
+        }, 2000); //1000 => 1초
+      }
+    </script>
+  </head>
+  <body>
+    <input type="text" onfocus="show()" onblur="hide()" />
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>div 태그 내의 자식요소 선택하기</h3>
+    <div id="book">
+      <p>마녀와의 7일</p>
+      <p>아이가 없는 집</p>
+      <p>나의 돈키호테</p>
+    </div>
+
+    <script>
+      let book = document.getElementById('book');
+
+      let pE1 = book.firstElementChild;
+      let pE2 = pE1.nextElementSibling;
+      let pE3 = book.lastElementChild;
+
+      let book1 = pE1.innerHTML;
+      let book2 = pE2.innerHTML;
+      let book3 = pE3.innerHTML;
+      alert(book1);
+      alert(book2);
+      alert(book3);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .todolist{
+            border: 1px solid black;
+            width: 500px;
+        }
+        .search{
+            text-align: center;
+        }
+
+        .search input{
+            width: 80%;
+            height: 30px;
+        }
+
+        .todoItemWrap{
+            width: 90%;
+            /*border: 1px solid black;*/
+            border-top: 1px solid black;
+            margin: 10px auto;
+            padding: 5px;
+            
+            
+        }
+
+        .todoItem{
+           /* border:1px solid black;*/
+            display: flex;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        .checkbox_col{
+            width: 10%;
+          /* border:1px solid black;*/
+
+        }
+        .title_col{
+            /*border:1px solid black;*/
+            width: 65%;
+
+        }
+        .date_col{
+           /* border:1px solid black;*/
+            width: 15%;
+
+        }
+        .delBtn_col{
+          /*  border:1px solid black; */
+            width: 10%;
+        }
+
+        .delBtn_col  button{
+            border: none;
+            border-radius: 5px;
+        }
+ 
+
+    </style>
+</head>
+<body>
+
+    <div class="todolist">
+        <h3>todo list</h3>
+        <div class="search"> <input type="text"  placeholder="검색어 입력"></div>
+        <div class="todoItemWrap">
+            <!--todo Item-->
+            <div class="todoItem">
+                <div class="checkbox_col"><input type="checkbox"> </div>
+                <div class="title_col">c</div>
+                <div class="date_col">c</div>
+                <div class="delBtn_col"><button>삭제</button></div>
+            </div>
+            <div class="todoItem">
+                <div class="checkbox_col"><input type="checkbox"> </div>
+                <div class="title_col">c</div>
+                <div class="date_col">c</div>
+                <div class="delBtn_col"><button>삭제</button></div>
+            </div>
+            <div class="todoItem">
+                <div class="checkbox_col"><input type="checkbox"> </div>
+                <div class="title_col">c</div>
+                <div class="date_col">c</div>
+                <div class="delBtn_col"><button>삭제</button></div>
+            </div>
+        </div>
+    </div>    
+</body>
+</html>

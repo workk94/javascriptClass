@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 하나의 도서정보
+      // 도서정보에 필요한 데이터
+      /**
+       * 도서이름,
+       * 도서가격,
+       * 출판사,
+       * 저자
+       */
+
+      let bookName = '뇌';
+      let bookPrice = 15000;
+      let bookpublisher = '열린책들 ';
+      let bookAuthor = '베르나르베르베르';
+
+      // 자바스크립트 객체 표현법 : JSON
+      let bookInfo = {
+        name: '뇌',
+        price: 13000,
+        publisher: '열린책들',
+        author: '베르나르베르베르',
+      };
+
+      // 객체의 속성 이용
+      console.log(bookInfo.name);
+      console.log(bookInfo.price);
+      console.log(bookInfo['author']);
+
+      // 객체 속성 변경(저장)
+      bookInfo.publisher = '에이콘';
+      console.log(bookInfo.publisher);
+    </script>
+  </body>
+</html>

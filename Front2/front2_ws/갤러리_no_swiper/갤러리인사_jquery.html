@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .slide-wrap{
+      width: 500px;
+    }
+    .gallery{
+      width: 100%;
+      height: 50px;
+    }
+    .gallery  div{
+      display: none;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      let divtags = $(".slide-wrap .gallery div");
+      let contents =[];
+      divtags.each(function(index, div) {
+        contents[index] = $(div).html();
+      });
+      let index=-1;   // 이미지배열의 index를 의미 (1 => 두번째 부터 )
+      function nextChangeImg() {
+        index++;
+        if(index >= contents.length) {
+          index = 0;
+        }
+        let gallery = $(".gallery");
+        gallery.html(contents[index]);
+
+        gallery.animate({
+          transform: ['translateY(100%)', 'translateY(0px)']
+        }, {
+          duration: 1000
+        });
+      }
+
+      
+      setInterval(nextChangeImg, 3000);
+    });
+  </script>
+</head>
+<body>
+  <div class="slide-wrap">
+    <div class="gallery">
+      <div> 과정의 반이 지났어요 !</div>
+      <div>  고생많았어요. 남은 시간은 더 빨리 지나갈꺼예요 ! 우리 모두 후회없이 ^^  </div>
+      <div>  마지막까지 화이팅 해봐요 !! 아자 아자</div>
+    </div>
+  </div>
+</body>
+</html>

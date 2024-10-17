@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>문자열 다루기 : String 활용하기</h3>
+
+    <script>
+      //문자열 비교
+      let message = 'hello';
+
+      if (message == 'hello') {
+        console.log('같아요');
+      }
+
+      //문자열 연결
+      let result = message + 'javascript';
+      console.log(result);
+
+      let result2 = message.concat('javascript');
+      console.log(result2);
+
+      //문자열내에서 찾는 문자열의 시작인덱스 반환
+      // 없으면 -1을 반환함
+      let str = 'i like javascript';
+      let index = str.indexOf('like');
+      console.log(index);
+
+      //서브스트링 리턴
+      let result3 = str.substring(2, 6); // 2번에서부터 6번째 인덱스 전까지 가져옴
+      let result4 = str.substr(2, 4); // 2번째에서 4개
+
+      console.log(result3);
+      console.log(result4);
+
+      //문자열 변경
+      //원본문자열은 변경되지 않는다
+      // 변경된 새로운 문자열 반환한다
+      let result5 = str.replace('like', 'love');
+      console.log(result5);
+      console.log(str);
+
+      //문자열 분할
+      let tel = '010-1234-5678';
+      let rtn = tel.split('-'); // 분리된 요소를 배열로 변환한다
+      console.log(rtn[0]);
+      console.log(rtn[1]);
+      console.log(rtn[2]);
+      console.log(rtn.length);
+
+      //문자열 앞뒤의 공백 제거
+      let name = ' woojooyeon  ';
+      name = name.trim();
+      console.log(name);
+
+      //대소문자 변경
+      let result6 = str.toUpperCase();
+      console.log(result6);
+
+      //소문자로 변경
+      let result7 = result6.toLowerCase();
+      console.log(result7);
+
+      //문자열 내의 문자 알아내기
+      let result8 = str.charAt(0); // 순번, 순번은 0부터 시작함
+      console.log(result8);
+    </script>
+  </body>
+</html>

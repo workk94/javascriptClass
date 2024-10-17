@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>index1</title>
+    <style>
+      .wrap {
+        width: 1200px;
+        border: 1px solid black;
+        margin: 0 auto;
+      }
+
+      header {
+        border: 1px solid black;
+        height: 100px;
+        background-color: red;
+
+        /*  */
+        position: relative;
+      }
+      nav {
+        border: 1px solid black;
+        height: 60px;
+      }
+      section {
+        height: 400px;
+        background-color: aqua;
+      }
+      footer {
+        height: 100px;
+        background-color: blueviolet;
+
+        /*  */
+        display: flex;
+      }
+      footer > div {
+        width: 33%;
+        border: 1px solid black;
+        height: 100px;
+      }
+
+      header .img {
+        width: 60px;
+        height: 60px;
+        background-color: aqua;
+
+        /*  */
+        position: absolute;
+        /* top, left, right, bottom */
+        left: 30px;
+        top: 10px;
+      }
+
+      header .search {
+        width: 100px;
+        height: 60px;
+        background-color: burlywood;
+
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <!-- 로고 이미지 -->
+        <div class="img"></div>
+        <!-- 검색바 -->
+        <div class="search"></div>
+      </header>
+      <nav></nav>
+      <section></section>
+      <footer>
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,84 @@
+section {
+    align-items: center;
+    width: 1200px;
+    margin: auto;
+}
+
+header {
+    width: 100%;
+    height: 20vh;
+}
+
+.item-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.item {
+    width: 290px;
+}
+
+img {
+    width: 100%;
+}
+
+span {
+    display: block;
+    margin: 2px;
+}
+
+.title {
+    font-size: 16px;
+}
+
+.event {
+    font-weight: bolder;
+    color:red;
+}
+
+.category {
+    font-weight: bold;
+    color:royalblue;
+}
+
+.price {
+    font-weight: bold;
+    color:cornflowerblue;
+}
+
+.badge {
+    display: inline-block;
+    
+    color: lightslategray;
+    padding:2px;
+
+    border-radius: 5px;
+}
+
+.best {
+    background-color: pink;
+}
+
+.monopoly {
+    background-color: lightgrey;
+}
+
+@media (max-width:768px) {
+    section {
+        width: 600px;
+        padding: 10px;
+        
+    }
+}
+
+@media (max-width:600px) {
+    section {
+        width: 420px;
+        padding: 10px;
+    }
+    
+    .item {
+        width: 400px;
+    }
+}

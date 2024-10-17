@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+      .body {
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        margin: 0 auto;
+        width: 500px;
+        border: 1px solid black;
+        padding: 20px;
+      }
+      .header-wrap {
+        margin: 30px auto;
+        background-color: gray;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .form-wrap {
+        display: flex;
+      }
+
+      .form-wrap input {
+        padding: 10px;
+        flex: 5;
+      }
+
+      .form-wrap button {
+        flex: 1;
+      }
+
+      .search-wrap {
+        margin: 30px auto;
+      }
+
+      .item-wrap {
+        border-top: 1px solid black;
+        margin: 10px auto;
+        padding: 10px;
+      }
+      .todo-item {
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+
+    <script>
+      $(document).ready(() => {
+        setInterval(getTime, 1000);
+      });
+      function getTime() {
+        let today = new Date();
+        // //
+        // console.log(today.getFullYear() + '년');
+        // console.log(today.getMonth() + 1 + '월');
+        // console.log(today.getDate() + '일');
+        // console.log(today.getHours() + '시');
+        // console.log(today.getMinutes() + '분');
+        // console.log(today.getSeconds() + '초');
+
+        let str = `${today.getFullYear()}년 ${
+          today.getMonth() + 1
+        }월 ${today.getDate()}일 ${today.getHours()}시 ${today.getMinutes()}분 ${today.getSeconds()} 초`;
+        $('.current-time').html(str);
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- 헤더-->
+      <div class="header-wrap">
+        <h2>오늘은 😊</h2>
+        <p class="current-time"></p>
+      </div>
+
+      <!-- 등록 -->
+      <div class="form-wrap">
+        <input type="text" placeholder="일정추가" />
+        <button class="add-btn">등록</button>
+      </div>
+
+      <!-- 검색 -->
+      <div class="search-wrap">
+        <div class="search-header">
+          <h3>hi</h3>
+        </div>
+        <div class="form-wrap">
+          <input type="text" placeholder="검색어 입력..." />
+          <button class="search-btn">검색</button>
+        </div>
+      </div>
+
+      <!-- 아이템-->
+      <div class="item-wrap">
+        <div class="todo-item">
+          <input type="checkbox" />
+          <button class="delete-btn">삭제</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

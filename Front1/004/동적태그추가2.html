@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script>
+        function createE(){
+            
+            //a태그 생성
+            let result  = document.getElementById("result");            
+            let a  = document.createElement("a");
+            a.style.backgroundColor="green";
+            a.style.color="white";
+            a.style.textAlign="center";
+            a.style.textDecoration="none";
+
+
+            a.innerHTML="네이버";
+            a.href="https://www.naver.com"; 
+
+            //태그 추가
+            result.appendChild( a); 
+        }
+    </script>
+</head>
+<body>
+    
+
+    <button  onclick="createE()">a태그 생성</button>
+
+    <div id="result"></div>
+</body>
+</html>

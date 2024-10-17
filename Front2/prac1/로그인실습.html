@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        body{
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+            height: 100vh;   /*  viewport 높이 */
+        }
+
+
+        .wrap{
+            border: 1px solid black;
+            width: 600px;
+
+
+            padding: 10px;
+            box-sizing: border-box;
+
+        }
+
+        .wrap > div{
+            border: 1px solid black;
+        }
+
+
+        .sns-login{
+            display: flex;
+        }
+
+        .sns-login button{
+            flex: 1;
+        }
+
+        .field{
+         display: flex;           
+        }
+
+        .field label{
+            flex:1;
+        }
+
+        .field input{
+            flex:4;
+        }
+
+
+        .login-btn  button{
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            width: 100px;
+        }
+
+
+        /* 모바일 구간*/
+        @media (max-width: 768px){
+            .wrap{
+                width: 100%;
+            }
+
+            .sns-login{
+                flex-direction: column;
+            }
+
+            .sns-login  button{
+                padding: 10px;
+            }
+
+            .field{
+                 flex-direction: column;
+                 margin-bottom: 10px;
+            }
+
+            .field input{
+                padding: 10px;
+            }
+
+            .login-btn  button{
+
+                width: 100%;
+            }
+
+        }
+
+    </style>
+    
+</head>
+<body>
+    
+
+    <div class="wrap">
+
+        <h2>reservation</h2>
+        <div class="sns-login">
+            <button>naver로그인</button>
+            <button>카카오로그인</button>
+        </div>
+
+        <div class="field">
+            <label>이름</label>
+            <input type="text">
+        </div>
+
+        <div  class="field">
+            <label>비번</label>
+            <input type="text">
+        </div>
+        
+        <div  class="field">
+            <label>이메일</label>
+            <input type="text">
+        </div>
+
+        <div class="login-btn"> <button>로그인</button></div>
+        
+
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+.item{
+
+    width: 100px;
+
+    position: relative;
+}
+    .item::after{
+
+    position: absolute;
+
+    content: "";
+    width: 0px;
+    left: 0px;
+    height: 1px;
+    bottom: 0px;
+    background-color: red;
+
+    transition: 0.3s;
+    }
+
+
+         
+.item:hover::after{
+    width: 100%;
+}
+
+
+    </style>
+</head>
+<body>
+    
+
+    <div class="item">dfdfd</div>
+</body>
+</html>

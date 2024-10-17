@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="search" />
+    <script>
+      document.querySelector('#search').addEventListener('keyup', function (e) {
+        //alert('hihi');
+
+        console.log(e);
+
+        // if (e.key == 'Enter') {
+        //   alert('검색중...');
+        // }
+
+        if (e.keyCode === 13) {
+          alert('검색중');
+        }
+      });
+    </script>
+  </body>
+</html>

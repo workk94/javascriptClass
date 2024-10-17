@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function calcAmt() {
+        let qtyTag = document.querySelector('#qty');
+        let priceTag = document.querySelector('#price');
+        let amtTag = document.querySelector('#amt');
+
+        let qty = qtyTag.value;
+        let price = priceTag.value;
+
+        let amt = parseInt(qty) * parseInt(price);
+
+        amtTag.value = amt;
+      }
+    </script>
+  </head>
+  <body>
+    수량<input type="text" id="qty" onkeyup="calcAmt()" value="1" /> 단가<input
+      type="text"
+      id="price"
+      onkeyup="calcAmt()"
+      value="0"
+    />
+    <input type="text" id="amt" /> <br />
+
+    <button onclick="calcAmt()">계산하기</button>
+  </body>
+</html>

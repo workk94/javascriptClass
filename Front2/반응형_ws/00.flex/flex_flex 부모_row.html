@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .wrap{      
+            width:600px; 
+            height:200px;   
+            display: flex;
+            flex-direction: row;     /* 가로로 나오게*/              
+            
+            border:1px solid black;
+        }
+        
+      .item{
+        flex:1;      /* 자식 요소의 크기의 비율을 1로 가짐*/  
+        background-color: cornflowerblue;
+        border: 1px solid black;        
+      }
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>       
+    </div>
+    
+</body>
+</html>

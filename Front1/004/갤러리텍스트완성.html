@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .slide-wrap {
+        width: 500px;
+      }
+      .gallery {
+        width: 100%;
+        height: 50px;
+      }
+      .gallery div {
+        display: none;
+      }
+    </style>
+
+    <script>
+      window.addEventListener('load', function () {
+        //작성코드
+        let slides = document.querySelectorAll('.slide-wrap .gallery div');
+        let contents = []; //배열
+        slides.forEach(function (slide, index) {
+          contents[index] = slide.innerHTML;
+        });
+
+        let index = -1;
+
+        function nextSlide() {
+          index++;
+          if (index >= contents.length) index = 0;
+
+          let gallery = document.querySelector('.gallery');
+          gallery.innerHTML = contents[index];
+        }
+
+        setInterval(nextSlide, 3000);
+      });
+    </script>
+  </head>
+  <body>
+    <div class="slide-wrap">
+      <div class="gallery">
+        갤러리화면
+        <div>여름 여름!!</div>
+        <div>장마가 시작된 듯</div>
+        <div>우산 꼭 챙겨 다닙시다</div>
+        <div>더운 날은 역시 시원한 에이콘 ^</div>
+      </div>
+    </div>
+  </body>
+</html>

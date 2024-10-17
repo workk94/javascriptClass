@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // let msg = [
+      //   '여름이 왔네요',
+      //   '프론트 프로젝트',
+      //   '밖은 덥지만 에어콘은 시원해요',
+      //   '여기가 천국 즐코 !!',
+      // ];
+      let msg = [];
+
+      let i = 0; // 배열의 인덱스
+
+      function nextMsg() {
+        let gallery = document.querySelector('.gallery');
+        gallery.innerHTML = msg[i];
+        i++;
+
+        if (i >= msg.length) {
+          i = 0;
+        }
+      }
+
+      gallery.animate(
+        {
+          transform: [
+            /* transform   translate 위치 이동 */
+            'translateY(100%)', //시작
+            'translateY(0px)', //도착
+          ],
+        },
+        {
+          duration: 1000, // 위의효과가 1초간 지속되도록
+        }
+      );
+
+      // 문서의 요소 중에서 갤러리 내용을 가져오기(배열에 추가하기)
+      function init() {
+        let divs = document.querySelectorAll('.gallery > div');
+        for (let i = 0; i < divs.length; i++) {
+          msg[i] = divs[i].innerHTML;
+        }
+        console.log(msg);
+
+        nextMsg();
+      }
+    </script>
+  </head>
+  <body onload="init()">
+    <div class="wrap">
+      <div class="gallery">
+        <div>'여름이 왔네요</div>
+        <div>'프론트 프로젝트'</div>
+        <div>'밖은 덥지만 에어콘은 시원해요'</div>
+        <div>'여기가 천국 즐코 !!'</div>
+      </div>
+    </div>
+
+    <button onclick="nextMsg()">다음</button>
+  </body>
+</html>

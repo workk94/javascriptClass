@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* CSS styles */
+        ul {
+            list-style: none;
+        }
+
+        .nav {
+            height: 100px;
+            background-color: aliceblue;
+            box-sizing: border-box;
+            position: relative;
+            margin-top: 100px;
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            height: 100px;
+            position: absolute;
+            right: 100px;
+        }
+
+        .item {
+            font-size: 12px;
+            text-align: center;
+            border-radius: 50%;
+            margin-left: 5px;
+        }
+
+        .item1 {
+            width: 60px;
+            height: 60px;
+            border: 1px solid rgb(237, 236, 236);
+            line-height: 60px;
+        }
+
+        .item2 {
+            width: 40px;
+            height: 40px;
+            background-image: url(https://lh3.googleusercontent.com/ogw/ADGmqu_sKQ74r14XW5bWUAIRoXn7hut8HTvtMAAH_iD3EA=s64-c-mo);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .item:hover {
+            background-color: #eee5e5;
+        }
+
+        .item2:hover {
+            box-shadow: 0px 0px 10px 0px rgb(83, 173, 106);
+        }
+
+        .search {
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        .search-bar {
+            width: 600px;
+            height: 60px;
+            border: 1px solid rgb(206, 202, 202);
+            border-radius: 30px;
+            text-align: center;
+            line-height: 60px;
+            margin: 0 auto;
+            transition: height 0.5s, box-shadow 0.5s, border 0.5s;
+        }
+
+        .search-bar  ul{
+            display: none;
+        }
+
+        .search-bar input {
+            width: 80%;
+            height: 40px;
+            border: 0px;
+            outline: 0px;
+        }
+
+        .search-bar:hover {
+            box-shadow: 0px 0px 10px 0px rgb(143, 135, 135);
+        }
+    </style>
+</head>
+<body onload="initList()">
+
+   
+    <div class="nav">
+        <div class="menu">
+            <div class="item item1">Gmail</div>
+            <div class="item item1">로그인</div>
+            <div class="item item1">이미지</div>
+            <div class="item item2"></div>
+        </div>
+    </div>
+
+    <div class="title" style="text-align: center; margin-top: 100px;">
+        <img src="https://www.google.co.kr/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="Google Logo" style="width: 280px; height: 100px;">
+    </div>
+
+    <div class="search">
+        <div class="search-bar">
+            <input type="text" class="input" onfocus="showList()" onblur="hideList()" onkeyup="searching(event)">
+            <ul></ul> 
+        </div>
+    </div>
+
+    <script>
+     
+        let searchList = [];
+        let time;
+
+        function showList() {
+            let list = document.querySelector(".search-bar > ul");
+            let searchbar = document.querySelector(".search-bar");
+            list.style.display = "block";
+            searchbar.style.height = "auto"; 
+        }
+
+        function hideList() {
+            if (time != null) clearTimeout(time);
+
+            let list = document.querySelector(".search-bar > ul");
+            let searchbar = document.querySelector(".search-bar");
+
+           
+            time = setTimeout(function() {
+                list.style.display = "none";
+                searchbar.style.height = "60px";
+            }, 2000);
+        }
+
+        function searching(e) {
+            let searchWord = e.target.value;
+
+            if (e.keyCode === 13) {  
+                alert("검색중: " + searchWord);
+                addSearch(searchWord);
+                saveList();
+                initList();
+            }
+        }
+
+        function addSearch(searchWord) {
+            searchList.push(searchWord);
+        }
+
+        function saveList() {
+            let searchListString = JSON.stringify(searchList);
+            localStorage.setItem("searchList", searchListString);
+        }
+
+        function initList() {
+            let searchListString = localStorage.getItem("searchList");
+            searchList = searchListString ? JSON.parse(searchListString) : [];
+            let list = document.querySelector(".search-bar ul");
+
+            let str = "";
+            for (let i = 0; i < searchList.length; i++) {
+                let item = searchList[i];
+                str += "<li id='" + i + "'>" + item + "<span onclick='deleteItem(this)'> X </span></li>";
+            }
+            list.innerHTML = str;
+
+           
+            document.querySelector(".search-bar input").value = "";
+        }
+
+        function deleteItem(obj) {
+            let li = obj.parentElement;
+            let deleteId = li.id;
+            li.remove();
+            searchList.splice(deleteId, 1);
+            saveList();
+        }
+    </script>
+
+</body>
+</html>

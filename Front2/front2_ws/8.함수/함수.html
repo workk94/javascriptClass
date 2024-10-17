@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+
+// 이 두 함수 작성의 차이 : 호이스팅   
+// function  =>가장 먼저 해석됨  => 호이스팅(끌어올림) (순서가 뒤에 있어도 먼저 해석됨)
+
+
+
+        a();
+        //b();  =>오류발생
+
+        
+
+        //작성하는 순서 상관없이 호출가능
+        function a(){
+            alert("function a");
+        }
+
+
+        //작성하고 나서 호출해야 함         
+        let b = function(){
+            alert("function b");
+        }
+
+        a();
+        b();
+
+
+        //
+
+        function c(){
+            return "function c";
+        }
+
+        let result = c();
+        alert( result);
+
+
+        function d(){            
+            
+            return function(){
+                 alert( " function d 함수리턴");
+            }
+        }
+        
+
+        let result2 = d();
+        result2();
+
+
+    </script>
+</body>
+</html>

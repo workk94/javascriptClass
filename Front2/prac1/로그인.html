@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .wrap {
+        width: 400px;
+        padding: 10px;
+        /* 안커지게 하기 */
+        box-sizing: border-box;
+        border: 1px solid black;
+      }
+
+      .wrap > div {
+        border: 1px solid black;
+      }
+
+      .field {
+        display: flex;
+      }
+
+      /* 1:4 비율 */
+      .field label {
+        flex: 1;
+      }
+
+      .field input {
+        flex: 4;
+      }
+
+      .field button {
+        width: 100%;
+      }
+
+      @media (max-width: 768px) {
+        .field {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h2>에이콘 로그인</h2>
+      <div class="field">
+        <label>이름</label>
+        <input type="text" />
+      </div>
+      <div class="field">
+        <label>이름</label>
+        <input type="text" />
+      </div>
+      <div class="field">
+        <button>로그인</button>
+      </div>
+    </div>
+  </body>
+</html>

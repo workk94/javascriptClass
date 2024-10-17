@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    function showMyInfo(name, email, tel, address) {
+      console.log(name);
+      console.log(email);
+      console.log(tel);
+      console.log(address);
+    }
+    function showMyInfoGrace(info) {
+      console.log(info.name);
+      console.log(info.email);
+      console.log(info.tel);
+      console.log(info.address);
+    }
+    showMyInfoGrace({
+      name: 'kim',
+      email: 'dfsd',
+      tel: '020',
+      address: 'sdfsdf',
+    });
+
+    showMyInfo('김정석', 'ddd', '010', 'dsf');
+  </script>
+  <body></body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        header{
+            display: flex;
+
+        }
+
+        header > div{
+            border: 1px solid black;
+        }
+
+        .logo{
+            flex:1;
+        }
+
+       .gnb{
+            flex:6;
+        }
+
+        .sns{
+            flex:1;
+        }
+        @media (max-width: 768px) {
+
+            header{
+                flex-direction: column;
+            }
+
+            .logo{
+                order:2;
+
+            }
+
+            .gnb{
+
+                order:0;
+            }
+
+            .sns{
+                order:1;
+
+            }
+
+
+
+        }
+
+
+    </style>
+</head>
+<body>
+    
+
+    <header>
+        <div class="logo">a</div>
+        <div class="gnb">b</div>
+        <div class="sns">c</div>
+    </header>
+</body>
+</html>

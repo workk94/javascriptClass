@@ -1,0 +1,196 @@
+/* Google Web Font */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap');
+
+/* Fontawesome 4.7 */
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+ 
+
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #eee;
+  font-size: 15px;
+  color: #222;
+  margin: 0;
+}
+
+/* Reset CSS */
+a {
+  text-decoration: none;
+  color: #222;
+}
+h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+  font-weight: normal;
+}
+button {
+  cursor: pointer;
+  outline: none;
+}
+
+/* Header */
+/* header 요소(nav)  수직 가운데 맞춤  , 가로가운데 맞춤  */
+header {
+  height: 60px;
+  background-color: #0984e3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+/*  nav 요소들을  간격맞춤*/
+nav {
+  width: 1280px;
+  display: flex;
+  justify-content: space-between;
+}
+ 
+.gnb {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.gnb li {}
+.gnb li a {
+  color: #fff;
+  margin: 10px;
+}
+
+.sns {
+  text-align: center;
+}
+.sns a {
+  color: #fff;
+  margin: 5px;
+}
+
+
+/* 메뉴영역에 마우스가 올라오면 검은색으로 변경하기 */
+.gnb li a:hover,
+.sns a:hover {
+  color: #000;
+}
+
+
+/*햄버거 아이콘 안보이게 하기*/
+.trigger {
+  display: none;
+}
+
+
+
+/* 미디어쿼리   768px까지 (최대)  일때 적용되는 css  - 모바일크기임*/
+@media screen and ( max-width: 768px) {
+
+  /* Header */
+  header {
+    height: auto;
+  }
+
+  nav {
+    width: 100%;
+    flex-direction: column;
+    position: relative;
+
+    border:1px solid red;
+  }
+
+  .logo {
+    padding: 10px;
+  }
+
+
+  /* 메뉴영역의 메뉴 방향으로 세로 방향으로 */
+  .gnb {
+    flex-direction: column; 
+    text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+    border:1px solid red;
+  }
+ 
+  .gnb li a {
+    display: block;
+    padding: 8px;
+    margin: 0;
+  }
+
+
+  .sns {
+    background-color: #257ed6;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .sns a {
+    color: #222;
+  }
+
+
+  /* gnb sns영역은  반응형에서는 기본적으로 안보이게 함*/
+  .gnb,
+  .sns {
+    display: none;
+  }
+
+ /* 햄버거아이콘 클릭시  on클래스를 토글로 줌 , on이 있으면 보임 */
+  .gnb.on,
+  .sns.on {
+    display: flex;
+  }
+
+  
+  /* 햄버거아이콘 영역 */
+  .trigger {
+    display: block;     
+    width: 25px;
+    height: 15px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border:1px solid black;
+  }
+
+
+  .trigger span {
+    background-color: #fff;
+    height: 1px;
+    position: absolute;
+    width: 100%;
+    transition: 0.3s;
+  }
+  .trigger span:nth-child(1) {
+    top: 0;
+  }
+  .trigger span:nth-child(2) {
+    top: 50%;
+  }
+  .trigger span:nth-child(3) {
+    top: 100%;
+  }
+  .trigger.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 50%;
+  }
+  .trigger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .trigger.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 50%;
+  }
+}
+
+
+
+
+
+
+
+
+

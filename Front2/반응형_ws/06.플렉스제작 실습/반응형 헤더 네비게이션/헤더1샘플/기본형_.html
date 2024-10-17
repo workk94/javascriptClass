@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+           header{
+
+            height: 60px;
+            display: flex;
+            
+            border:1px solid black;
+            justify-content: center;
+            align-items: center;
+
+
+           }
+
+           .inner{
+            width: 1280px;
+            border :1px solid black;
+            display: flex;
+            justify-content: space-between;
+
+            
+            position: relative;
+
+           }
+
+               /*  inner 영역을 기준으로 오른쪽에 끝에 붙이기*/
+           .trigger{
+            display: none;
+            position: absolute;
+            right: 10px;
+            top:0px
+           }
+ 
+
+        
+
+
+
+
+
+           /*
+           
+           반응형코드
+         
+           1.  헤더의 높이를 auto 로 설정 ( content만큼으로 높이가 정해짐)
+           2.  inner영역의 flex방향을 컬럼( 세로) 변경
+           3.  (햄버거 아이콘)트리거영역 보이기 
+           
+
+           */
+
+           @media screen and ( max-width: 768px) {
+            header{
+                height: auto;
+            }
+
+
+            
+            /*  메뉴가 세로 방향으로 나오게 방향을 바꾼다*/
+            .inner{
+                width: 100%;
+                flex-direction: column;
+                             
+            }
+
+
+
+
+            .trigger{
+            display: block;
+           }
+
+ 
+            
+ 
+            .gnb ,  .sns{
+                text-align: center;
+            }
+         
+
+
+           }
+    </style>
+</head>
+<body>
+    
+
+    <header>
+
+        <div class="inner">
+            <!--로고-->
+            <div class="logo">로고</div>
+
+            <div class="gnb"> 메뉴</div>
+
+            <div class="sns">sns</div>
+
+            <div class="trigger">햄</div>
+        </div>
+
+    </header>
+</body>
+</html>

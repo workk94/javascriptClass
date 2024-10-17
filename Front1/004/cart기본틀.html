@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table {
+        width: 900px;
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+
+      td,
+      th {
+        border: 1px solid black;
+        width: 200px;
+      }
+    </style>
+
+    <script>
+      //매개변수정보(입력) : 수량Element (수량태그)
+      function calPrice(obj) {
+        // alert(obj);
+        let qty = obj.value;
+        let priceTag = obj.parentElement.previousElementSibling;
+        let amtTag = obj.parentElement.nextElementSibling;
+
+        let price = parseInt(priceTag.innerHTML);
+        amtTag.innerHTML = price * qty;
+      }
+
+      //금액이 변경되면 전체 금액을 갱신
+      function totalPrice() {
+        // alert('전체금액 갱신');
+        let amts = document.querySelectorAll('.amt');
+        let sum = 0;
+
+        for (let i = 0; i < amts.length; i++) {
+          let item = amts[i];
+          let amount = parseInt(item.innerHTML);
+          // alert(amount);
+          sum += amount;
+        }
+        document.querySelector('#total-price').innerHTML = sum;
+      }
+
+      //체크되어 있는 항목 삭제하기
+      function itemDelete() {
+        // alert('선택된 항목 삭제');
+        let checkboxs = document.querySelectorAll('.cb');
+
+        // 전체체크박스 선택한다
+        for (let i = 0; i < checkboxs.length; i++) {
+          let item = checkboxs[i]; // item => checkbox 한개
+          if (item.checked) {
+            //체크가 되면 true 값
+            let tr = item.parentElement.parentElement;
+            tr.remove();
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <table>
+        <caption>
+          카페
+        </caption>
+
+        <thead>
+          <tr>
+            <th>선택</th>
+            <th>제품명</th>
+            <th>단가</th>
+            <th>수량</th>
+            <th>금액</th>
+          </tr>
+        </thead>
+
+        <tbody id="list">
+          <tr>
+            <td><input type="checkbox" class="cb" /></td>
+            <td>아메리카노</td>
+            <td>4500</td>
+            <td><input type="text" value="1" onkeyup="calPrice(this)" /></td>
+            <td class="amt">4500</td>
+          </tr>
+
+          <tr>
+            <td><input type="checkbox" class="cb" /></td>
+            <td>카페라떼</td>
+            <td>5000</td>
+            <td><input type="text" value="1" onkeyup="calPrice(this)" /></td>
+            <td class="amt">5000</td>
+          </tr>
+
+          <tr>
+            <td><input type="checkbox" class="cb" /></td>
+            <td>바닐라라떼</td>
+            <td>5500</td>
+            <td><input type="text" value="1" onkeyup="calPrice(this)" /></td>
+            <td class="amt">5500</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <p>
+        <button onclick="itemDelete()">삭제</button>
+      </p>
+      <p id="total">
+        총 결제 금액 <span id="total-price">0</span>원
+        <button onclick="totalPrice()">합계구하기</button>
+      </p>
+    </div>
+  </body>
+</html>
