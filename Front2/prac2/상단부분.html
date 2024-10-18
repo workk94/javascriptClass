@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+
+        header{
+            width: 960px;
+            /*border: 1px solid black;*/
+
+            margin: 0 auto;
+        }
+
+        .gnb{
+            text-align: right;
+        }
+
+        .search{
+            display: flex;
+            justify-content: space-between;
+        }
+
+
+        input{
+            padding: 5px;
+
+            border: 0px;
+            border-bottom: 1px solid black;
+
+            background-image: url("images/search.png") ;
+            background-repeat: no-repeat;
+            background-position: right;
+            background-size: 20px;
+            outline: none;
+        }
+
+
+        .search button{
+            border: none;
+            font-size: 20px;
+            padding:  13px 60px;   /* */
+            border-radius: 5px;
+            color: white;
+            background-color: rgb(56, 63, 45);
+        }
+
+        .search button:hover{
+            background-color: blueviolet;
+        }
+
+
+        /* 모바일 구간 */
+        @media (max-width: 768px) {
+            header{
+                width: 100%;
+            }
+
+            .gnb{
+                text-align: center;
+            }
+            .search{
+                flex-direction: column;
+            }
+
+        }
+
+
+    </style>
+</head>
+<body>
+    
+
+    <header>
+         <div class="gnb"> 
+            <a href="#none">Photoshop</a>
+            <a href="#none">Illustrator</a>
+            <a href="#none">Publishing</a>
+         </div>
+        <div class="search">
+             <input type="text"  placeholder="Search">
+             <button>Designer Profile </button>
+        </div>
+    </header>
+
+</body>
+</html>

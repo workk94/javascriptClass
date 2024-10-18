@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .wrap > div {
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div>김도현</div>
+      <div class="item">김무궁</div>
+      <div>김세중</div>
+      <div>김솔</div>
+      <div>김정석</div>
+      <div>김세현</div>
+    </div>
+
+    <script>
+      // setTimeout( 콜백함수 , 초);
+
+      //wrap 아래의 div 요소들이 순차적으로 나올 수 있도록
+
+      let divs = document.querySelectorAll('.wrap > div');
+
+      // 반복
+      for (let i = 0; i < divs.length; i++) {
+        let div = divs[i];
+
+        setTimeout(function () {
+          div.style.opacity = 1;
+        }, 1000 * (i + 1));
+      }
+
+      /*
+      divs.forEach((element, index) => {
+        setTimeout(function () {
+          element.style.opacity = 1;
+        }, 1000 * (index + 1));
+      }); // 0      
+      */
+    </script>
+  </body>
+</html>

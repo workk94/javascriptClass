@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ul {
+        list-style: none;
+        display: flex;
+        /* 기본값 */
+        flex-direction: row;
+      }
+
+      li {
+        border: 1px solid black;
+        flex: 1;
+      }
+
+      @media (max-width: 768px) {
+        ul {
+          flex-direction: column;
+        }
+
+        ul > li:nth-child(1) {
+          /*  order 기본값 0*/
+          order: 2;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>a</li>
+      <li>b</li>
+      <li>c</li>
+    </ul>
+  </body>
+</html>
