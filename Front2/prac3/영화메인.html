@@ -1,0 +1,476 @@
+<!-- 
+1. 모바일 햄버거 메뉴 만들기 
+2. 움직이는 슬라이드
+3. 영화관 정보 > 지역별
+4. 맵 없앨때 모바일에서 푸터 안보임 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/d471660ae5.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      header {
+        height: 35px;
+        padding: 2px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        background-color: #000000;
+        color: white;
+        align-items: center;
+      }
+
+      .logo {
+        margin-left: 5px;
+        padding: 2px;
+      }
+
+      /* pc메뉴 */
+      .user-menu {
+        margin-right: 5px;
+        padding: 2px;
+      }
+
+      .user-menu a {
+        color: white;
+      }
+
+      /* 모바일 메뉴 */
+      .m-user-menu {
+        display: none;
+      }
+
+      .search-wrap {
+        margin: 2px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+      }
+      .search-wrap form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+      }
+
+      .search-wrap input {
+        padding: 4px;
+        margin: 2px;
+      }
+
+      .slider-container {
+        display: flex;
+        width: 100%;
+        height: 600px;
+        position: relative;
+      }
+
+      .slider-img {
+        width: 100%;
+        background-image: url('https://an2-img.amz.wtchn.net/image/v2/qaOz6m_HuoUboODFaquHNg.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk1UUTBNSGc0TVRCeE1UQXdJbDBzSW5BaU9pSXZkakl2YzNSdmNtVXZhVzFoWjJVdk5ESXdNVFk1TkRZNE9EUTBPRGN3SW4wLmoyQmZuUC14X3NwZXpGUnhBS1lWV3dlTjBvMGxjZjJiMVc3THF2bUd4dUk');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        display: flex;
+        align-items: flex-end;
+      }
+
+      .slider-img-info {
+        text-align: right;
+        padding: 20px;
+        background-color: rgba(86, 87, 86, 0.5);
+      }
+
+      .slider-img-info p:nth-child(1) {
+        font-size: 2.5rem;
+        font-weight: bold;
+      }
+
+      .slider-img-info p:nth-child(2) {
+        font-size: 1.5rem;
+        font-weight: 350;
+      }
+
+      .slider-next {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: gainsboro;
+        top: 50%;
+        right: 10px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .items {
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        border: 1px solid black;
+      }
+
+      .item {
+        flex: 1;
+        padding: 5px;
+        border: 1px solid black;
+      }
+
+      .item img {
+        width: 100%;
+        object-fit: contain;
+      }
+
+      .title {
+        display: none;
+        padding: 10px;
+        margin: 10px;
+      }
+
+      .new::after {
+        content: 'new';
+        border-radius: 3px;
+        font-size: 15px;
+        color: yellow;
+        margin: 2px;
+        padding: 2px;
+        background-color: red;
+      }
+
+      .plot {
+        padding: 10px;
+        display: none;
+      }
+
+      .rating {
+        display: none;
+      }
+
+      .rating span {
+        font-weight: bold;
+      }
+
+      main {
+        /*  100vh - 헤더 - 푸터 - 페이징 */
+        height: calc(100vh - (65px + 30px));
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+      }
+
+      .category {
+        border: 1px solid black;
+      }
+
+      .category ul {
+        list-style: none;
+        display: flex;
+      }
+
+      .category li {
+        border-radius: 3px;
+        background-color: #d94844;
+        padding: 5px;
+        margin: 3px;
+      }
+
+      .category li > a {
+        color: white;
+      }
+
+      .pagination-container {
+        background-color: #000000;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .pagination a {
+        text-decoration: none;
+        color: white;
+      }
+
+      footer {
+        height: 30px;
+        background-color: black;
+        color: white;
+      }
+
+      @media (max-width: 768px) {
+        header {
+          height: fit-content;
+        }
+        .items {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .item {
+          width: 100%;
+        }
+
+        .item img {
+          width: 100%;
+        }
+        .title {
+          display: block;
+        }
+
+        .rating {
+          padding: 10px;
+          display: block;
+        }
+
+        .fa-star {
+          color: yellow;
+        }
+
+        .slider-container {
+          width: 100%;
+          height: 400px;
+        }
+
+        .slider-img-info {
+          visibility: hidden;
+        }
+
+        .slider-container:hover .slider-img-info {
+          visibility: visible;
+        }
+
+        .search-wrap {
+          /* border: 2px solid red; */
+          width: 100%;
+          order: 3;
+        }
+        .search-wrap form {
+          width: 100%;
+        }
+        .search-wrap input {
+          width: 100%;
+        }
+        .plot {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <!-- 로고 -->
+      <div class="logo">로고</div>
+
+      <!-- 검색바 -->
+      <div class="search-wrap">
+        <form action="#">
+          <input type="text" placeholder="검색" />
+        </form>
+      </div>
+
+      <!-- 유저 메뉴 -->
+      <div class="user-menu">
+        <a href="#">로그인</a>
+        <a href="#">회원가입</a>
+      </div>
+
+      <div class="m-user-menu">
+        <a href=""></a>
+      </div>
+    </header>
+
+    <main>
+      <!-- 카테고리 -->
+      <div class="category">
+        <ul>
+          <li><a href="#">액션</a></li>
+          <li><a href="#">공포</a></li>
+          <li><a href="#">스릴러</a></li>
+        </ul>
+      </div>
+
+      <!-- 슬라이드 -->
+      <section class="slider-container">
+        <div class="slider-img">
+          <div class="slider-img-info">
+            <p>영화제목</p>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Laudantium in expedita, nulla rem fuga modi ab neque eaque ipsa
+              odit dolore adipisci, quam error nemo rerum quasi dicta tenetur
+              eos.
+            </p>
+          </div>
+        </div>
+        <div class="slider-next">
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+      </section>
+
+      <!-- 영화 -->
+      <div class="items">
+        <div class="item">
+          <h3 class="title new">영화제목</h3>
+
+          <a href="">
+            <img
+              src="http://file.koreafilm.or.kr/thm/02/00/01/46/tn_DPK004440.JPG
+              "
+              alt=""
+            />
+          </a>
+          <div class="plot">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Repellendus obcaecati culpa laboriosam. Explicabo neque est
+              pariatur asperiores consectetur minima reiciendis perferendis
+              commodi, doloremque accusantium cum optio vel quibusdam provident
+              voluptatum.
+            </p>
+          </div>
+
+          <div class="rating">
+            <span> 평점 </span>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </div>
+
+        <div class="item">
+          <h3 class="title">영화제목</h3>
+          <img
+            src="http://file.koreafilm.or.kr/thm/02/00/01/46/tn_DPK004440.JPG
+                "
+            alt=""
+          />
+          <div class="plot">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Repellendus obcaecati culpa laboriosam. Explicabo neque est
+              pariatur asperiores consectetur minima reiciendis perferendis
+              commodi, doloremque accusantium cum optio vel quibusdam provident
+              voluptatum.
+            </p>
+            <a href="#">더보기</a>
+          </div>
+        </div>
+
+        <div class="item">
+          <h3 class="title">영화제목</h3>
+          <img
+            src="http://file.koreafilm.or.kr/thm/02/00/01/46/tn_DPK004440.JPG
+                "
+            alt=""
+          />
+          <div class="plot">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Repellendus obcaecati culpa laboriosam. Explicabo neque est
+              pariatur asperiores consectetur minima reiciendis perferendis
+              commodi, doloremque accusantium cum optio vel quibusdam provident
+              voluptatum.
+            </p>
+            <a href="#">더보기</a>
+          </div>
+        </div>
+
+        <div class="item">
+          <h3 class="title">영화제목</h3>
+          <img
+            src="http://file.koreafilm.or.kr/thm/02/00/01/46/tn_DPK004440.JPG
+                "
+            alt=""
+          />
+          <div class="plot">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Repellendus obcaecati culpa laboriosam. Explicabo neque est
+              pariatur asperiores consectetur minima reiciendis perferendis
+              commodi, doloremque accusantium cum optio vel quibusdam provident
+              voluptatum.
+            </p>
+            <a href="#">더보기</a>
+          </div>
+        </div>
+
+        <div class="item">
+          <h3 class="title new">영화제목</h3>
+          <img
+            src="http://file.koreafilm.or.kr/thm/02/00/01/46/tn_DPK004440.JPG
+                "
+            alt=""
+          />
+          <div class="plot">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Repellendus obcaecati culpa laboriosam. Explicabo neque est
+              pariatur asperiores consectetur minima reiciendis perferendis
+              commodi, doloremque accusantium cum optio vel quibusdam provident
+              voluptatum.
+            </p>
+            <a href="#">더보기</a>
+          </div>
+        </div>
+
+        <div class="item">
+          <h3 class="title">영화제목</h3>
+          <img
+            src="http://file.koreafilm.or.kr/thm/02/00/01/46/tn_DPK004440.JPG
+                "
+            alt=""
+          />
+          <div class="plot">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Repellendus obcaecati culpa laboriosam. Explicabo neque est
+              pariatur asperiores consectetur minima reiciendis perferendis
+              commodi, doloremque accusantium cum optio vel quibusdam provident
+              voluptatum.
+            </p>
+            <a href="#">더보기</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- 페이징 -->
+    <section class="pagination-container">
+      <div class="pagination">
+        <span class="page-prev"> <a href="#"> [이전] </a> </span>
+        <a href="#"> 1 </a>
+        <a href="#"> 2 </a>
+        <a href="#"> 3 </a>
+        <span class="page-next"> <a href="#"> [다음] </a> </span>
+      </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer>푸터</footer>
+  </body>
+</html>

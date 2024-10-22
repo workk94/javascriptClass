@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .items {
+        width: 900px;
+        display: flex;
+        flex-wrap: wrap;
+        border: 1px solid black;
+        justify-content: space-between;
+      }
+      .item {
+        width: 290px;
+        border: 1px solid black;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+      .item img {
+        width: 100%;
+      }
+
+      .title {
+        color: royalblue;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .price {
+        display: block;
+        color: blue;
+        margin-bottom: 10px;
+      }
+      .badge {
+        padding: 5px;
+        border-radius: 5px;
+        background-color: pink;
+      }
+
+      @media (max-width: 768px) {
+        .items {
+          width: 100%;
+        }
+
+        .item {
+          width: 100%;
+        }
+
+        .item:nth-child(1) {
+          order: 3;
+        }
+
+        .item:nth-child(2) {
+          order: 1;
+        }
+
+        .item:nth-child(3) {
+          order: 2;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="items">
+      <div class="item">
+        <img src="img/course-01.png" alt="" />
+        <h4>자바스크립트</h4>
+        <span class="title">웹개발</span>
+        <span class="price">6100</span>
+        <span class="badge">베스트셀러</span>
+      </div>
+      <div class="item">
+        <img src="img/course-02.png" alt="" />
+        <h4>html</h4>
+        <span class="title">웹개발</span>
+        <span class="price">6100</span>
+        <span class="badge">베스트셀러</span>
+      </div>
+      <div class="item">
+        <img src="img/course-03.png" alt="" />
+        <h4>스프링</h4>
+        <span class="title">웹개발</span>
+        <span class="price">6100</span>
+        <span class="badge">베스트셀러</span>
+      </div>
+    </div>
+  </body>
+</html>
